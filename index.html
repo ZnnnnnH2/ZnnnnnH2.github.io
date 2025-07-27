@@ -1,175 +1,536 @@
-<!DOCTYPE html><html lang="zh-CH" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>ZnnnnnH2 小屋</title><meta name="author" content="ZnnnnnH2"><meta name="copyright" content="ZnnnnnH2"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="output">
+<!DOCTYPE html>
+<html lang="zh-CH">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="output">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ZnnnnnH2 小屋">
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="ZnnnnnH2 小屋">
 <meta property="og:description" content="output">
 <meta property="og:locale" content="zh_CH">
-<meta property="og:image" content="http://example.com/img/butterfly-icon.png">
 <meta property="article:author" content="ZnnnnnH2">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/img/butterfly-icon.png"><script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "ZnnnnnH2 小屋",
-  "url": "http://example.com/"
-}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
-    (() => {
-      
-    const saveToLocal = {
-      set: (key, value, ttl) => {
-        if (!ttl) return
-        const expiry = Date.now() + ttl * 86400000
-        localStorage.setItem(key, JSON.stringify({ value, expiry }))
-      },
-      get: key => {
-        const itemStr = localStorage.getItem(key)
-        if (!itemStr) return undefined
-        const { value, expiry } = JSON.parse(itemStr)
-        if (Date.now() > expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return value
-      }
-    }
 
-    window.btf = {
-      saveToLocal,
-      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
-        const script = document.createElement('script')
-        script.src = url
-        script.async = true
-        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
-        script.onload = script.onreadystatechange = () => {
-          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
-        }
-        script.onerror = reject
-        document.head.appendChild(script)
-      }),
-      getCSS: (url, id) => new Promise((resolve, reject) => {
-        const link = document.createElement('link')
-        link.rel = 'stylesheet'
-        link.href = url
-        if (id) link.id = id
-        link.onload = link.onreadystatechange = () => {
-          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
-        }
-        link.onerror = reject
-        document.head.appendChild(link)
-      }),
-      addGlobalFn: (key, fn, name = false, parent = window) => {
-        if (!false && key.startsWith('pjax')) return
-        const globalFn = parent.globalFn || {}
-        globalFn[key] = globalFn[key] || {}
-        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
-        parent.globalFn = globalFn
-      }
-    }
+<link rel="canonical" href="http://example.com/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CH'
+  };
+</script>
+
+  <title>ZnnnnnH2 小屋</title>
   
-      
-      const activateDarkMode = () => {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      const activateLightMode = () => {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
 
-      btf.activateDarkMode = activateDarkMode
-      btf.activateLightMode = activateLightMode
 
-      const theme = saveToLocal.get('theme')
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="تشغيل شريط التصفح">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ZnnnnnH2 小屋</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>الأرشيفات</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
     
-          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
-        
-      
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
-      }
-    
-      
-    const detectApple = () => {
-      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-  
-    })()
-  </script><script>const GLOBAL_CONFIG = {
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
-  copy: {
-    success: 'Copy Successful',
-    error: 'Copy Failed',
-    noSupport: 'Browser Not Supported'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '',
-  dateSuffix: {
-    just: 'Just now',
-    min: 'minutes ago',
-    hour: 'hours ago',
-    day: 'days ago',
-    month: 'months ago'
-  },
-  copyright: undefined,
-  lightbox: 'null',
-  Snackbar: undefined,
-  infinitegrid: {
-    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
-    buttonText: 'Load More'
-  },
-  isPhotoFigcaption: false,
-  islazyloadPlugin: false,
-  isAnchor: false,
-  percent: {
-    toc: true,
-    rightside: false,
-  },
-  autoDarkmode: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'ZnnnnnH2 小屋',
-  isHighlightShrink: false,
-  isToc: false,
-  pageType: 'home'
-}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">ZnnnnnH2 小屋</span></a></span><div id="menus"></div></nav><div id="site-info"><h1 id="site-title">ZnnnnnH2 小屋</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/07/26/pandas/" title="pandas 基础">pandas 基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-07-25T16:32:00.000Z" title="Created 2025-07-26 00:32:00">2025-07-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CS/">CS</a></span></div><div class="content">pandas [[2  Pandas I (from Spring 2025) – Principles and Techniques of Data Science]]how datas are organizedsee table as DataFrame, and each column as a Series Series a sequence of values of same type a sequence of data labels called index  Selection in Series by a single label or a list of labels: s[[labels]] by a filtering condition: s[s &gt; 0]  DataFramewhere the data of DataFrame comes from csv file: pd.read_csv(&#39;file.csv&#39;, index_col = &#39;year&#39;) using a list: pd.DataFrame([...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/07/25/hello-world/" title="Hello World">Hello World</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-07-25T10:14:07.517Z" title="Created 2025-07-25 18:14:07">2025-07-25</time></span></div><div class="content">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;  More info: Writing Run server1$ hexo server  More info: Server Generate static files1$ hexo generate  More info: Generating Deploy to remote sites1$ hexo deploy  More info: Deployment </div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">ZnnnnnH2</div><div class="author-info-description">output</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/26/pandas/" title="pandas 基础">pandas 基础</a><time datetime="2025-07-25T16:32:00.000Z" title="Created 2025-07-26 00:32:00">2025-07-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/25/hello-world/" title="Hello World">Hello World</a><time datetime="2025-07-25T10:14:07.517Z" title="Created 2025-07-25 18:14:07">2025-07-25</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
-            <i class="fas fa-folder-open"></i>
-            <span>Categories</span>
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
             
-          </div>
-          <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CS/"><span class="card-category-list-name">CS</span><span class="card-category-list-count">1</span></a></li>
-          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/python/" style="font-size: 1.1em; color: #999">python</a> <a href="/tags/data-science/" style="font-size: 1.1em; color: #999">data_science</a></div></div><div class="card-widget card-archives">
-    <div class="item-headline">
-      <i class="fas fa-archive"></i>
-      <span>Archives</span>
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CH">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/07/26/pandas/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ZnnnnnH2">
+      <meta itemprop="description" content="output">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZnnnnnH2 小屋">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/07/26/pandas/" class="post-title-link" itemprop="url">pandas 基础</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">نُشر في</span>
+              
+
+              <time title="أُنشأ: 2025-07-26 00:32:00 / عُدل: 00:33:18" itemprop="dateCreated datePublished" datetime="2025-07-26T00:32:00+08:00">2025-07-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">في</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="pandas-2-Pandas-I-from-Spring-2025-–-Principles-and-Techniques-of-Data-Science"><a href="#pandas-2-Pandas-I-from-Spring-2025-–-Principles-and-Techniques-of-Data-Science" class="headerlink" title="pandas [[2  Pandas I (from Spring 2025) – Principles and Techniques of Data Science]]"></a>pandas [[2  Pandas I (from Spring 2025) – Principles and Techniques of Data Science]]</h1><h2 id="how-datas-are-organized"><a href="#how-datas-are-organized" class="headerlink" title="how datas are organized"></a>how datas are organized</h2><p>see table as DataFrame, and each column as a Series</p>
+<h3 id="Series"><a href="#Series" class="headerlink" title="Series"></a>Series</h3><ul>
+<li>a sequence of values of same type</li>
+<li>a sequence of data labels called index</li>
+</ul>
+<h4 id="Selection-in-Series"><a href="#Selection-in-Series" class="headerlink" title="Selection in Series"></a>Selection in Series</h4><ul>
+<li>by a single label or a list of labels: <code>s[[labels]]</code></li>
+<li>by a filtering condition: <code>s[s &gt; 0]</code></li>
+</ul>
+<h3 id="DataFrame"><a href="#DataFrame" class="headerlink" title="DataFrame"></a>DataFrame</h3><h4 id="where-the-data-of-DataFrame-comes-from"><a href="#where-the-data-of-DataFrame-comes-from" class="headerlink" title="where the data of DataFrame comes from"></a>where the data of DataFrame comes from</h4><ul>
+<li>csv file: <code>pd.read_csv(&#39;file.csv&#39;, index_col = &#39;year&#39;)</code></li>
+<li>using a list: <code>pd.DataFrame([[1, 2], [3, 4]], columns=[&#39;A&#39;, &#39;B&#39;], index=[&#39;a&#39;, &#39;b&#39;])</code></li>
+<li>using a dictionary: <code>pd.DataFrame(&#123;&#39;A&#39;: [1, 2], &#39;B&#39;: [3, 4]&#125;, index=[&#39;a&#39;, &#39;b&#39;])</code></li>
+<li>using a Series:</li>
+</ul>
+<h4 id="about-index"><a href="#about-index" class="headerlink" title="about index"></a>about index</h4><ul>
+<li>index can also have a name</li>
+<li>do not have to be unique</li>
+<li>These indices are the arbitrary numerical indices generated when we created the <code>DataFrame</code>. For example, <code>banana</code> was originally in row 2, and so it has row label 2. Note the distinction between the index <code>_label_</code>, and the actual index <code>_position_</code>.</li>
+<li>can be set to specific column using <code>df.set_index(&lt;column&gt;)</code></li>
+<li>can be reset to default using <code>df.reset_index()</code></li>
+</ul>
+<h4 id="DataFrame-API"><a href="#DataFrame-API" class="headerlink" title="DataFrame API"></a>DataFrame API</h4><p><a href="**%5Bhttps://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html%5D(https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html)**">API doc</a></p>
+<ul>
+<li><code>idxmax()</code> function returns the index of the first occurrence of the maximum value in a Series or DataFrame.</li>
+<li><code>drop_duplicates()</code> function removes duplicate rows from a DataFrame.</li>
+</ul>
+<h4 id="Data-extraction"><a href="#Data-extraction" class="headerlink" title="Data extraction"></a>Data extraction</h4><ul>
+<li><code>df.head(&lt;n&gt;)</code></li>
+<li><code>df.tail(&lt;n&gt;)</code></li>
+<li><code>df.loc[&lt;row_index&gt;, &lt;column_name&gt;]</code><ul>
+<li>Note that if we request a single column but don’t enclose it in a list, the return type of the <code>loc</code> operator is a <code>Series</code> rather than a <code>DataFrame</code></li>
+<li><strong>reminder: a:b means [a,b]</strong></li>
+</ul>
+</li>
+<li><code>df.iloc[&lt;row_integers&gt;, &lt;column_integers&gt;]</code></li>
+<li><code>[]</code><ul>
+<li>a slice of rows: <code>df[&lt;row_slice&gt;]</code></li>
+<li>a list of column labels</li>
+<li>a single column label</li>
+<li><strong>reminder: a:b means [a,b)</strong></li>
+<li>Note that slicing notation is not supported for columns if you use <code>[]</code> notation. Use <code>loc</code> instead.</li>
+</ul>
+</li>
+</ul>
+<h5 id="Boolean-Array-Input"><a href="#Boolean-Array-Input" class="headerlink" title="Boolean Array Input"></a>Boolean Array Input</h5><ul>
+<li><code>.loc</code> and <code>[]</code> can take a boolean array as input</li>
+</ul>
+<h5 id="Boolean-choose"><a href="#Boolean-choose" class="headerlink" title="Boolean choose"></a>Boolean choose</h5><ul>
+<li><code>df[df[&#39;column&#39;] &gt; 0]</code> returns rows where the value in ‘column’ is greater than 0</li>
+<li><code>df[df[&#39;column&#39;].isin([1, 2, 3])]</code> returns rows where the value in ‘column’ is in the list <code>[1, 2, 3]</code></li>
+<li><code>df[df[&#39;column&#39;].str.contains(&#39;pattern&#39;)]</code> returns rows where the value in ‘column’ contains the substring ‘pattern’</li>
+</ul>
+<h4 id="operations-on-DataFrame"><a href="#operations-on-DataFrame" class="headerlink" title="operations on DataFrame"></a>operations on DataFrame</h4><h5 id="add-modify-columns"><a href="#add-modify-columns" class="headerlink" title="add&#x2F;modify columns"></a>add&#x2F;modify columns</h5><ul>
+<li>using <code>[]</code> to add a new column: <code>df[&#39;new_column&#39;] = [1, 2, 3]</code></li>
+</ul>
+<h5 id="rename-columns"><a href="#rename-columns" class="headerlink" title="rename columns"></a>rename columns</h5><ul>
+<li>using <code>rename</code>: <code>df.rename(columns=&#123;&#39;old_name&#39;: &#39;new_name&#39;&#125;, inplace=True)</code></li>
+</ul>
+<h5 id="delete-columns"><a href="#delete-columns" class="headerlink" title="delete columns"></a>delete columns</h5><ul>
+<li>using <code>drop</code>: <code>df.drop(columns=[&#39;column_to_delete&#39;], inplace=True)</code><ul>
+<li>By default, <code>drop</code> does not modify the DataFrame in place, so you need to set <code>inplace=True</code> to apply the changes directly to the original DataFrame, or just assign the result to a new variable.</li>
+</ul>
+</li>
+</ul>
+<h4 id="useful-methods"><a href="#useful-methods" class="headerlink" title="useful methods"></a>useful methods</h4><ul>
+<li>suport a range of methods from <code>numpy</code>, as long as the type is int.</li>
+<li><code>size/shape</code></li>
+<li><code>describe</code>: return a description of DataFrame</li>
+<li><code>sample</code>: randomly select rows, replace can be set</li>
+<li><code>value_counts</code>: return counts of unique values</li>
+<li><code>sort_values</code>: sort by column values</li>
+<li><code>unique</code>: return unique values</li>
+</ul>
+<h4 id="Group"><a href="#Group" class="headerlink" title="Group"></a>Group</h4><h5 id="Goal"><a href="#Goal" class="headerlink" title="Goal"></a>Goal</h5><p>Group data by one or more columns and perform aggregate operations on the grouped data.</p>
+<h5 id="GroupBy"><a href="#GroupBy" class="headerlink" title="GroupBy"></a>GroupBy</h5><p>groupby generates a GroupBy object</p>
+<p>we can’t work with GroupBy object directly, we need to apply an aggregation function(to reduce the dimension of table)(a function that aggregates several values into one summary value) to it.<br><code>grouped = df.groupby(&#39;column_name&#39;).agg(&#123;&#39;other_column&#39;: &#39;sum&#39;&#125;)</code></p>
+<p>the column we grouped on will become the index</p>
+<h6 id="Filtering-by-Group"><a href="#Filtering-by-Group" class="headerlink" title="Filtering by Group"></a><strong>Filtering by Group</strong></h6><p>it takes a function that returns true or false for each sub-DataFrame, where <code>True</code> means the group should be kept.</p>
+<h6 id="look-into-DataFrame-groupby-ways"><a href="#look-into-DataFrame-groupby-ways" class="headerlink" title="look into DataFrame.groupby ways"></a><strong>look into DataFrame.groupby ways</strong></h6><p><code>grouped.groups()</code><br><code>grouped.get_group(&#39;group_name&#39;)</code></p>
+<h6 id="Grouping-by-Multiple-Columns"><a href="#Grouping-by-Multiple-Columns" class="headerlink" title="Grouping by Multiple Columns"></a><strong>Grouping by Multiple Columns</strong></h6><ol>
+<li>using a list of column names: <code>df.groupby([&#39;col1&#39;, &#39;col2&#39;])</code></li>
+<li>using Pivot Table</li>
+</ol>
+<ul>
+<li><code>index</code>: the column(s) to group by</li>
+<li><code>columns</code>: the column(s) to pivot</li>
+<li><code>values</code>: the column(s) to aggregate</li>
+<li><code>aggfunc</code>: the aggregation function to apply</li>
+</ul>
+<h4 id="Joining-DataFrames"><a href="#Joining-DataFrames" class="headerlink" title="Joining DataFrames"></a>Joining DataFrames</h4>
       
     </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
   
-    <ul class="card-archive-list">
+  
+  
+
       
-        <li class="card-archive-list-item">
-          <a class="card-archive-list-link" href="/archives/2025/07/">
-            <span class="card-archive-list-date">
-              July 2025
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CH">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/07/25/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ZnnnnnH2">
+      <meta itemprop="description" content="output">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZnnnnnH2 小屋">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/07/25/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">نُشر في</span>
+
+              <time title="أُنشأ: 2025-07-25 18:14:07" itemprop="dateCreated datePublished" datetime="2025-07-25T18:14:07+08:00">2025-07-25</time>
             </span>
-            <span class="card-archive-list-count">2</span>
-          </a>
-        </li>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-    </ul>
-  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">2</div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-07-25T16:34:09.622Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 By ZnnnnnH2</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          المحتويات
+        </li>
+        <li class="sidebar-nav-overview">
+          عام
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ZnnnnnH2</p>
+  <div class="site-description" itemprop="description">output</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">المقالات</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">التصنيفات</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">الوسوم</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZnnnnnH2</span>
+</div>
+  <div class="powered-by">تطبيق الموقع <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
