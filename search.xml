@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>php反序列化练习</title>
+      <link href="/2025/08/01/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E7%BB%83%E4%B9%A0/"/>
+      <url>/2025/08/01/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E7%BB%83%E4%B9%A0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p>如何把其他文件输出 highlight_file(‘flag.php’);</p><p>最简单的反序列化</p><h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p>最简单的反序列化</p><h2 id="3"><a href="#3" class="headerlink" title="3"></a>3</h2><p>urlencode</p><p>在收到请求时，PHP 内部会 <strong>自动对 Cookie 做一次百分号解码（percent-decode）</strong>，再把结果填进 <code>$_COOKIE</code> 超全局，所以脚本里看到的已经是“还原好”的字符串。</p><p>PHP 对 <code>$_GET</code> &#x2F; <code>$_POST</code> 也会先做同样的解码（只是 <code>+</code> 在 query string 会变空格）；保持行为一致更易理解。</p><h2 id="4"><a href="#4" class="headerlink" title="4"></a>4</h2><ol><li><p><code>creat_function()</code>: <code>create_function(string $args, string $code): string</code>. 它内部会 <code>eval(&quot;function ($args) &#123; $code &#125;&quot;)</code> —— <strong>在创建时就执行 <code>eval</code></strong>。</p><ol><li>将<code>$code</code>的首字符设为<code>&#125;</code>，这是经典的 <strong><code>create_function</code> 注入技巧</strong>：<ul><li><code>create_function(&#39;&#39;, &#39;…代码…&#39;)</code> 会拼成：<code>function () &#123; …代码… &#125;</code></li><li>你把 <code>code</code> 设为 <code>&quot;&#125;...;//&quot;</code>，<strong>先闭合</strong>函数体，然后插入任意 PHP 语句，最后用注释吞掉尾巴。</li></ul></li></ol></li><li><p>PHP 7+ 允许对“数组型 callable（<code>[$obj,&#39;method&#39;]</code>）”直接用 <code>()</code> 调用。</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">hi</span>(<span class="params"><span class="variable">$name</span></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;Hello, <span class="subst">$name</span>\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$d</span>   = <span class="keyword">new</span> <span class="title class_">Demo</span>();</span><br><span class="line"><span class="variable">$cb</span>  = [<span class="variable">$d</span>, <span class="string">&#x27;hi&#x27;</span>];       <span class="comment">// 数组型 callable</span></span><br><span class="line"><span class="variable">$arg</span> = <span class="string">&#x27;Peter&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1) 传统</span></span><br><span class="line"><span class="title function_ invoke__">call_user_func</span>(<span class="variable">$cb</span>, <span class="variable">$arg</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2) PHP 7+ 直接调用</span></span><br><span class="line"><span class="variable">$cb</span>(<span class="variable">$arg</span>);               <span class="comment">// 也可写 ($cb)($arg);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3) 本质等同于</span></span><br><span class="line"><span class="variable">$d</span>-&gt;<span class="title function_ invoke__">hi</span>(<span class="variable">$arg</span>);            <span class="comment">// 直接方法调用</span></span><br></pre></td></tr></table></figure></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> ctf </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> php </tag>
+            
+            <tag> 反序列化 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>pandas 基础</title>
       <link href="/2025/07/26/pandas/"/>
       <url>/2025/07/26/pandas/</url>
