@@ -1,0 +1,336 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>概率论小结 | ZnnnnnH2 小屋</title><meta name="author" content="ZnnnnnH2"><meta name="copyright" content="ZnnnnnH2"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="STAT 110 – Probability Study Notes (Rewritten &amp; Structured) Goal: a compact, exam‑ready set of notes that are well‑scaffolded, example‑driven, and correct by construction. Each section includes: W">
+<meta property="og:type" content="article">
+<meta property="og:title" content="概率论小结">
+<meta property="og:url" content="https://znnnnnh2.icu/2025/08/13/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%B0%8F%E7%BB%93/index.html">
+<meta property="og:site_name" content="ZnnnnnH2 小屋">
+<meta property="og:description" content="STAT 110 – Probability Study Notes (Rewritten &amp; Structured) Goal: a compact, exam‑ready set of notes that are well‑scaffolded, example‑driven, and correct by construction. Each section includes: W">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://znnnnnh2.icu/img/butterfly-icon.png">
+<meta property="article:published_time" content="2025-08-12T17:10:29.000Z">
+<meta property="article:modified_time" content="2025-08-12T17:13:14.383Z">
+<meta property="article:author" content="ZnnnnnH2">
+<meta property="article:tag" content="概率论">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://znnnnnh2.icu/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "概率论小结",
+  "url": "https://znnnnnh2.icu/2025/08/13/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%B0%8F%E7%BB%93/",
+  "image": "https://znnnnnh2.icu/img/butterfly-icon.png",
+  "datePublished": "2025-08-12T17:10:29.000Z",
+  "dateModified": "2025-08-12T17:13:14.383Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "ZnnnnnH2",
+      "url": "https://znnnnnh2.icu"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://znnnnnh2.icu/2025/08/13/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%B0%8F%E7%BB%93/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '概率论小结',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">ZnnnnnH2 小屋</span></a><a class="nav-page-title" href="/"><span class="site-name">概率论小结</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">概率论小结</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-08-12T17:10:29.000Z" title="发表于 2025-08-13 01:10:29">2025-08-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-08-12T17:13:14.383Z" title="更新于 2025-08-13 01:13:14">2025-08-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="STAT-110-–-Probability-Study-Notes-Rewritten-Structured"><a href="#STAT-110-–-Probability-Study-Notes-Rewritten-Structured" class="headerlink" title="STAT 110 – Probability Study Notes (Rewritten &amp; Structured)"></a>STAT 110 – Probability Study Notes (Rewritten &amp; Structured)</h1><blockquote>
+<p>Goal: a compact, exam‑ready set of notes that are <strong>well‑scaffolded</strong>, <strong>example‑driven</strong>, and <strong>correct by construction</strong>. Each section includes: <em>What it is</em>, <em>Key facts</em>, <em>Common pitfalls</em>, and <em>One‑liner examples</em>.</p>
+</blockquote>
+<hr>
+<h2 id="0-Quick-Roadmap-What-to-use-when"><a href="#0-Quick-Roadmap-What-to-use-when" class="headerlink" title="0. Quick Roadmap (What to use when)"></a>0. Quick Roadmap (What to use when)</h2><ul>
+<li><strong>Counting &amp; Naïve probability</strong> → uniform sample spaces.</li>
+<li><strong>Conditioning &amp; Bayes</strong> → update beliefs, tree&#x2F;partition problems, Monty Hall.</li>
+<li><strong>Discrete RVs</strong> → Bernoulli&#x2F;Binomial&#x2F;Hypergeometric&#x2F;Geometric&#x2F;NegBin&#x2F;Poisson.</li>
+<li><strong>Continuous RVs</strong> → Uniform&#x2F;Exponential&#x2F;Normal&#x2F;Logistic; LOTUS &amp; transforms.</li>
+<li><strong>Joint&#x2F;Independence</strong> → marginals, covariance&#x2F;correlation, convolution.</li>
+<li><strong>MGF&#x2F;CGF</strong> → sums of independent variables; identify distributions.</li>
+<li><strong>Inequalities &amp; LLN&#x2F;CLT</strong> → tail control, approximations.</li>
+<li><strong>Order stats</strong> → minima&#x2F;maxima &amp; quantiles.</li>
+<li><strong>Offshoots of Normal</strong> → χ², t, F; Beta&#x2F;Gamma conjugacies.</li>
+<li><strong>Markov chains</strong> → transitions, stationary, reversibility.</li>
+<li><strong>Sampling&#x2F;IPW</strong> → Horvitz–Thompson, when weights help&#x2F;hurt variance.</li>
+</ul>
+<hr>
+<h2 id="1-Probability-Foundations"><a href="#1-Probability-Foundations" class="headerlink" title="1. Probability Foundations"></a>1. Probability Foundations</h2><h3 id="1-1-Sample-space-events-axioms"><a href="#1-1-Sample-space-events-axioms" class="headerlink" title="1.1 Sample space, events, axioms"></a>1.1 Sample space, events, axioms</h3><ul>
+<li><strong>Sample space</strong> $\Omega$; <strong>event</strong> $A\subseteq\Omega$; <strong>probability</strong> $P$.</li>
+<li><strong>Additivity</strong>: disjoint $A_i$: $P(\cup_i A_i)&#x3D;\sum_i P(A_i)$.</li>
+<li><strong>Complement</strong>: $P(A^c)&#x3D;1-P(A)$.</li>
+</ul>
+<h3 id="1-2-Counting-uniform-models"><a href="#1-2-Counting-uniform-models" class="headerlink" title="1.2 Counting (uniform models)"></a>1.2 Counting (uniform models)</h3><ul>
+<li><strong>Permutations</strong>: $P(n,k)&#x3D;n!&#x2F;(n-k)!$.</li>
+<li><strong>Combinations</strong>: $\binom{n}{k}&#x3D;n!&#x2F;(k!(n-k)!)$.</li>
+<li><strong>Vandermonde</strong>: $\sum_k \binom{m}{k}\binom{n}{r-k}&#x3D;\binom{m+n}{r}$.</li>
+</ul>
+<p><strong>Pitfalls:</strong> forgetting whether order matters; mixing with&#x2F;without replacement.</p>
+<p><strong>Tiny check:</strong> cards without order, no replacement → combinations.</p>
+<hr>
+<h2 id="2-Conditioning-Bayes-and-Total-Probability"><a href="#2-Conditioning-Bayes-and-Total-Probability" class="headerlink" title="2. Conditioning, Bayes, and Total Probability"></a>2. Conditioning, Bayes, and Total Probability</h2><ul>
+<li><strong>Conditional</strong>: $P(A\mid B)&#x3D;\tfrac{P(AB)}{P(B)}$ if $P(B)&gt;0$.</li>
+<li><strong>Law of total probability (partition $A_i$)</strong>: $P(B)&#x3D;\sum_i P(B\mid A_i)P(A_i)$.</li>
+<li><strong>Bayes</strong>: $P(A_i\mid B)&#x3D;\tfrac{P(B\mid A_i)P(A_i)}{\sum_j P(B\mid A_j)P(A_j)}$.</li>
+<li><strong>Independence</strong>: $A\perp B\iff P(AB)&#x3D;P(A)P(B)$. <em>Conditional independence</em> is <strong>not</strong> implied by independence and vice‑versa.</li>
+</ul>
+<p><strong>Monty Hall (sketch):</strong> Prior: car behind 1&#x2F;3 each. Host opens goat door. Posterior: stay&#x3D;1&#x2F;3, switch&#x3D;2&#x2F;3. (Condition on host’s policy; use LOTP on host action.)</p>
+<p><strong>Pitfall:</strong> treating conditional independence as independence.</p>
+<hr>
+<h2 id="3-Random-Variables-RVs"><a href="#3-Random-Variables-RVs" class="headerlink" title="3. Random Variables (RVs)"></a>3. Random Variables (RVs)</h2><p>A random variable is a measurable function $X: \Omega\to\mathbb R$.</p>
+<h3 id="3-1-Discrete-basics"><a href="#3-1-Discrete-basics" class="headerlink" title="3.1 Discrete basics"></a>3.1 Discrete basics</h3><ul>
+<li><strong>PMF</strong> $p_X(x)&#x3D;P(X&#x3D;x)$; <strong>CDF</strong> $F_X(x)&#x3D;P(X\le x)$.</li>
+<li><strong>Expectation</strong> $E[X]&#x3D;\sum_x x,p_X(x)$. <strong>Variance</strong> $\operatorname{Var}(X)&#x3D;E[X^2]-E[X]^2$.</li>
+<li><strong>Linearity</strong>: $E[\sum_i a_i X_i]&#x3D;\sum_i a_i E[X_i]$ (no independence needed).</li>
+</ul>
+<h4 id="Canonical-discrete-families"><a href="#Canonical-discrete-families" class="headerlink" title="Canonical discrete families"></a>Canonical discrete families</h4><ul>
+<li><strong>Bernoulli</strong> $\mathrm{Ber}(p)$: $E&#x3D;p,\ Var&#x3D;p(1-p)$.</li>
+<li><strong>Binomial</strong> $\mathrm{Bin}(n,p)$: $P(X&#x3D;k)&#x3D;\binom{n}{k}p^k(1-p)^{n-k}$. Sum of iid Bernoullis. Additivity: $\mathrm{Bin}(n,p)+\mathrm{Bin}(m,p)&#x3D;\mathrm{Bin}(n+m,p)$ if independent.</li>
+<li><strong>Hypergeometric</strong> $\mathrm{Hyp}(N,K,n)$: sampling w&#x2F;o replacement; $\operatorname{Var}&#x3D;\frac{N-n}{N-1}np(1-p)$ with $p&#x3D;K&#x2F;N$.</li>
+<li><strong>Geometric</strong> (failures before first success): $P(X&#x3D;k)&#x3D;q^k p$, $E&#x3D;\tfrac{1}{p}$.</li>
+<li><strong>Negative Binomial</strong> (failures before $r$ th success): $P(X&#x3D;n)&#x3D;\binom{n+r-1}{r-1}p^r(1-p)^n$.</li>
+<li><strong>Poisson($\lambda$)</strong>: $P(X&#x3D;k)&#x3D;e^{-\lambda}\lambda^k&#x2F;k!$, $E&#x3D;\lambda&#x3D;\operatorname{Var}$. Additivity for independent Poissons.</li>
+</ul>
+<p><strong>Poisson Paradigm:</strong> many rare, nearly independent trials → count $\approx$ Poisson with $\lambda&#x3D;\sum_i p_i$.</p>
+<p><strong>Pitfall:</strong> Using Binomial when sampling without replacement → Hypergeometric is correct.</p>
+<h3 id="3-2-Continuous-basics"><a href="#3-2-Continuous-basics" class="headerlink" title="3.2 Continuous basics"></a>3.2 Continuous basics</h3><ul>
+<li><strong>PDF</strong> $f$, <strong>CDF</strong> $F$. $P(a\le X\le b)&#x3D;\int_a^b f(x),dx$.</li>
+<li><strong>LOTUS</strong> (a must‑know): $E[g(X)]&#x3D;\int g(x)f(x)dx$ (or $\sum g(x)p(x)$ discrete) — no need to compute distribution of $g(X)$.</li>
+</ul>
+<h4 id="Canonical-continuous-families"><a href="#Canonical-continuous-families" class="headerlink" title="Canonical continuous families"></a>Canonical continuous families</h4><ul>
+<li><strong>Uniform(a,b):</strong> $f&#x3D;1&#x2F;(b-a)$, $E&#x3D;(a+b)&#x2F;2$.</li>
+<li><strong>Exponential($\lambda$)</strong>: memoryless; $f&#x3D;\lambda e^{-\lambda x},1_{x\ge0}$; $E&#x3D;\tfrac1\lambda$, $\operatorname{Var}&#x3D;\tfrac1{\lambda^2}$.</li>
+<li><strong>Normal($\mu,\sigma^2$)</strong>: $Z&#x3D;(X-\mu)&#x2F;\sigma\sim N(0,1)$. Sums&#x2F;affine transforms stay normal.</li>
+<li><strong>Logistic($\mu,s$)</strong> (CDF $1&#x2F;(1+e^{-(x-\mu)&#x2F;s})$).</li>
+</ul>
+<p><strong>Transformations (Jacobian):</strong> If $Y&#x3D;g(X)$ bijective, $f_Y(y)&#x3D;f_X(g^{-1}(y)),\big|\frac{d}{dy}g^{-1}(y)\big|$. For vectors, use $|\det J_{g^{-1}}|$.</p>
+<p><strong>Pitfall:</strong> forgetting absolute value of Jacobian; forgetting support mapping.</p>
+<hr>
+<h2 id="4-Joint-Distributions-Covariance-Convolution"><a href="#4-Joint-Distributions-Covariance-Convolution" class="headerlink" title="4. Joint Distributions, Covariance, Convolution"></a>4. Joint Distributions, Covariance, Convolution</h2><ul>
+<li><strong>Joint PDF&#x2F;PMF</strong> $f_{X,Y}$; <strong>marginals</strong> by summing&#x2F;integrating over the other variable.</li>
+<li><strong>Independence</strong> $\Leftrightarrow f_{X,Y}&#x3D;f_X f_Y$ (for densities&#x2F;pmfs).</li>
+<li><strong>Covariance</strong>: $\operatorname{Cov}(X,Y)&#x3D;E[XY]-E[X]E[Y]$. If independent → 0; converse may fail.</li>
+<li><strong>Correlation</strong>: $\rho&#x3D;\tfrac{\operatorname{Cov}}{\sqrt{\operatorname{Var}X,\operatorname{Var}Y}}\in[-1,1]$.</li>
+<li><strong>Convolution</strong> (sum): discrete $p_{X+Y}(z)&#x3D;\sum_x p_X(x)p_Y(z-x)$; continuous $f_{X+Y}(z)&#x3D;\int f_X(x)f_Y(z-x)dx$.</li>
+</ul>
+<p><strong>Pitfall:</strong> claiming zero covariance ⇒ independence (false except in special families e.g., jointly normal).</p>
+<hr>
+<h2 id="5-MGFs-Sums"><a href="#5-MGFs-Sums" class="headerlink" title="5. MGFs &amp; Sums"></a>5. MGFs &amp; Sums</h2><ul>
+<li><strong>MGF</strong> $M_X(t)&#x3D;E[e^{tX}]$ (when it exists). Independent sums multiply MGFs.</li>
+<li><strong>Poisson</strong>: $M(t)&#x3D;\exp(\lambda(e^t-1))$. <strong>Gamma($\alpha,\lambda$)</strong>: $M(t)&#x3D;(1-\tfrac{t}{\lambda})^{-\alpha}$.</li>
+</ul>
+<p><strong>Use:</strong> Identify distributions of sums; prove additivity (Poisson, Gamma with common rate, Normal).</p>
+<p><strong>Pitfall:</strong> MGFs may not exist (e.g., Cauchy). Don’t force it.</p>
+<hr>
+<h2 id="6-Special-Families-Order-Statistics"><a href="#6-Special-Families-Order-Statistics" class="headerlink" title="6. Special Families &amp; Order Statistics"></a>6. Special Families &amp; Order Statistics</h2><h3 id="6-1-Beta-Gamma"><a href="#6-1-Beta-Gamma" class="headerlink" title="6.1 Beta &amp; Gamma"></a>6.1 Beta &amp; Gamma</h3><ul>
+<li><strong>Beta($\alpha,\beta$)</strong> on $(0,1)$: $f(x)\propto x^{\alpha-1}(1-x)^{\beta-1}$. Useful as a Binomial conjugate prior.</li>
+<li><strong>Gamma($\alpha,\lambda$)</strong> on $(0,\infty)$: $f(x)&#x3D;\frac{\lambda^{\alpha}}{\Gamma(\alpha)}x^{\alpha-1}e^{-\lambda x}$.</li>
+</ul>
+<h3 id="6-2-Offshoots-of-the-Normal"><a href="#6-2-Offshoots-of-the-Normal" class="headerlink" title="6.2 Offshoots of the Normal"></a>6.2 Offshoots of the Normal</h3><ul>
+<li><strong>Chi‑square</strong>: sum of squares of iid $N(0,1)$. $\chi^2(k)\equiv\mathrm{Gamma}(k&#x2F;2,1&#x2F;2)$.</li>
+<li><strong>t(k)</strong>: $Z&#x2F;\sqrt{W&#x2F;k}$ with $Z\sim N(0,1), W\sim\chi^2(k)$. Heavy‑tailed; $t(1)&#x3D;$Cauchy.</li>
+</ul>
+<h3 id="6-3-Order-statistics"><a href="#6-3-Order-statistics" class="headerlink" title="6.3 Order statistics"></a>6.3 Order statistics</h3><ul>
+<li>For iid with CDF $F$, $P(X_{(k)}\le x)&#x3D;\sum_{j&#x3D;k}^n \binom{n}{j}F(x)^j(1-F(x))^{n-j}$. Min&#x2F;max via $k&#x3D;1$ and $k&#x3D;n$.</li>
+</ul>
+<p><strong>Pitfall:</strong> confusing distribution of a quantile estimator with the quantile itself.</p>
+<hr>
+<h2 id="7-Inequalities-LLN-and-CLT"><a href="#7-Inequalities-LLN-and-CLT" class="headerlink" title="7. Inequalities, LLN, and CLT"></a>7. Inequalities, LLN, and CLT</h2><ul>
+<li><p><strong>Markov:</strong> $P(X\ge a)\le E[X]&#x2F;a$ for $X\ge0$.</p>
+</li>
+<li><p><strong>Chebyshev:</strong> $P(|X-\mu|\ge k\sigma)\le 1&#x2F;k^2$.</p>
+</li>
+<li><p><strong>(Bonus) Chernoff&#x2F;Hoeffding:</strong> exponential tails for sums of bounded&#x2F;independent RVs.</p>
+</li>
+<li><p><strong>Weak LLN:</strong> sample mean $\bar X_n\to \mu$ in probability.</p>
+</li>
+<li><p><strong>Strong LLN:</strong> $\bar X_n\to \mu$ almost surely (mild conditions).</p>
+</li>
+<li><p><strong>CLT:</strong> $\tfrac{\sum_{i&#x3D;1}^n(X_i-\mu)}{\sigma\sqrt n}\Rightarrow N(0,1)$. Use for normal approximations (with continuity correction for discrete).</p>
+</li>
+</ul>
+<p><strong>Pitfall:</strong> using CLT with tiny $n$ and highly skewed&#x2F;heavy tails.</p>
+<hr>
+<h2 id="8-Multivariate-Normal-MVN"><a href="#8-Multivariate-Normal-MVN" class="headerlink" title="8. Multivariate Normal (MVN)"></a>8. Multivariate Normal (MVN)</h2><ul>
+<li>$\mathbf X\sim\mathrm{MVN}(\mu,\Sigma)$ iff every linear combination $a^T\mathbf X$ is normal.</li>
+<li><strong>Key property:</strong> uncorrelated components ⇒ independent (special to MVN).</li>
+<li><strong>MGF:</strong> $M_{\mathbf X}(\mathbf t)&#x3D;\exp(\mu^T\mathbf t+\tfrac12\mathbf t^T\Sigma\mathbf t)$.</li>
+</ul>
+<hr>
+<h2 id="9-Markov-Chains-finite‑state"><a href="#9-Markov-Chains-finite‑state" class="headerlink" title="9. Markov Chains (finite‑state)"></a>9. Markov Chains (finite‑state)</h2><ul>
+<li><strong>Markov property:</strong> $P(X_{n+1}&#x3D;j\mid \text{past})&#x3D;P(X_{n+1}&#x3D;j\mid X_n&#x3D;i)$.</li>
+<li><strong>Transition matrix</strong> $P&#x3D;(p_{ij})$; $\pi$ stationary if $\pi^T P&#x3D;\pi^T$.</li>
+<li><strong>Irreducible + aperiodic</strong> ⇒ unique stationary and $P^n\to 1\pi^T$.</li>
+<li><strong>Reversible</strong> (detailed balance): $\pi_i p_{ij}&#x3D;\pi_j p_{ji}$.</li>
+</ul>
+<p><strong>Pitfall:</strong> confusing <em>stationary</em> with <em>limiting</em> distribution when the chain isn’t ergodic.</p>
+<hr>
+<h2 id="10-Cauchy-the-friendly-monster"><a href="#10-Cauchy-the-friendly-monster" class="headerlink" title="10. Cauchy (the friendly monster)"></a>10. Cauchy (the friendly monster)</h2><ul>
+<li><strong>PDF:</strong> $1&#x2F;(\pi(1+x^2))$. <strong>No</strong> mean&#x2F;variance; LLN fails. Useful counterexample in proofs.</li>
+</ul>
+<hr>
+<h2 id="11-Sampling-Inverse-Probability-Weighting-IPW"><a href="#11-Sampling-Inverse-Probability-Weighting-IPW" class="headerlink" title="11. Sampling &amp; Inverse Probability Weighting (IPW)"></a>11. Sampling &amp; Inverse Probability Weighting (IPW)</h2><h3 id="11-1-Why-weights"><a href="#11-1-Why-weights" class="headerlink" title="11.1 Why weights?"></a>11.1 Why weights?</h3><p>When inclusion probabilities differ, naïve sample means are biased for the population mean. <strong>Horvitz–Thompson (HT)</strong> fixes this:</p>
+<p>$\widehat{T}<em>{HT}&#x3D;\sum</em>{i\in S} \frac{Y_i}{\pi_i},\qquad \widehat{\mu}<em>{HT}&#x3D;\frac{1}{N}\sum</em>{i\in S}\frac{Y_i}{\pi_i}.$</p>
+<ul>
+<li>In <strong>SRS without replacement</strong> (sample size $n$ from $N$), $\pi_i&#x3D;n&#x2F;N$ so $w_i&#x3D;1&#x2F;\pi_i&#x3D;N&#x2F;n$ is constant → HT reduces to the usual sample expansion.</li>
+</ul>
+<h3 id="11-2-“All-weights-1-⇒-estimate-must-be-too-large-”-No"><a href="#11-2-“All-weights-1-⇒-estimate-must-be-too-large-”-No" class="headerlink" title="11.2 “All weights &gt; 1 ⇒ estimate must be too large?” (No.)"></a>11.2 “All weights &gt; 1 ⇒ estimate must be too large?” (No.)</h3><p>Weights being &gt;1 just <em>scale up</em> each sampled unit to represent unsampled ones. Estimates can be high <strong>or</strong> low depending on which $Y_i$ happen to be sampled. Over many samples, HT is <strong>unbiased</strong>; direction of single‑sample error follows whether selected $Y$’s are above&#x2F;below population mean.</p>
+<p><strong>Variance caution:</strong> IPW can <strong>inflate variance</strong> when some $\pi_i$ are tiny (huge weights). Stabilize via <strong>normalized weights</strong> or <strong>model‑assisted</strong> estimators.</p>
+<p><strong>One‑liner example (SRS, N&#x3D;5, n&#x3D;2):</strong> $\pi_i&#x3D;0.4, w&#x3D;2.5$. Draw {C&#x3D;6,E&#x3D;10} ⇒ expanded total 40 ⇒ mean 8 (too big this time). Draw {A&#x3D;2,B&#x3D;4} ⇒ mean 3 (too small). Across repeated samples, average back to true mean.</p>
+<hr>
+<h2 id="12-Worked-Micro‑Examples-quick-patterns"><a href="#12-Worked-Micro‑Examples-quick-patterns" class="headerlink" title="12. Worked Micro‑Examples (quick patterns)"></a>12. Worked Micro‑Examples (quick patterns)</h2><ol>
+<li><p><strong>Convolution (Poisson):</strong> $X\sim\mathrm{Poi}(\lambda), Y\sim\mathrm{Poi}(\mu)$ indep ⇒ $X+Y\sim\mathrm{Poi}(\lambda+\mu)$. <em>Proof:</em> MGFs multiply.</p>
+</li>
+<li><p><strong>Transform (Exponential→Min):</strong> If $X_i\stackrel{iid}{\sim}\mathrm{Exp}(\lambda)$, then $X_{(1)}\sim \mathrm{Exp}(n\lambda)$. <em>Proof:</em> $P(X_{(1)}&gt;x)&#x3D;P(\cap_i{X_i&gt;x})&#x3D;e^{-n\lambda x}$.</p>
+</li>
+<li><p><strong>Bayes with partitions:</strong> Disease prevalence $\pi$, sensitivity $s$, specificity $c$: $P(D\mid +)&#x3D;\tfrac{s\pi}{s\pi+(1-c)(1-\pi)}$.</p>
+</li>
+<li><p><strong>CLT approximation (Binomial):</strong> $X\sim\mathrm{Bin}(n,p)$ ⇒ $P(X\le k)\approx \Phi\Big(\tfrac{k+0.5-np}{\sqrt{np(1-p)}}\Big)$.</p>
+</li>
+</ol>
+<hr>
+<h2 id="13-Common-Pitfalls-How-to-Self‑Check"><a href="#13-Common-Pitfalls-How-to-Self‑Check" class="headerlink" title="13. Common Pitfalls &amp; How to Self‑Check"></a>13. Common Pitfalls &amp; How to Self‑Check</h2><ul>
+<li>Forgetting to <strong>condition on the mechanism</strong> (e.g., host policy in Monty Hall).</li>
+<li>Using <strong>Binomial</strong> for without‑replacement sampling (should be Hypergeometric).</li>
+<li>Dropping <strong>absolute value</strong> in Jacobian.</li>
+<li>Assuming <strong>zero covariance ⇒ independence</strong> (generally false).</li>
+<li>Applying CLT with <strong>tiny n</strong> or <strong>infinite variance</strong> (Cauchy!).</li>
+</ul>
+<p><strong>Self‑check loop:</strong> Identify space → model assumptions → write primitives (pmf&#x2F;pdf&#x2F;cdf) → use LOTUS&#x2F;conditioning → sanity check limits (p→0&#x2F;1, n→∞) → units&#x2F;support → if sum&#x2F;transform, prefer MGF&#x2F;CGF&#x2F;Jacobian.</p>
+<hr>
+<h2 id="14-Mini-Formula-Sheet"><a href="#14-Mini-Formula-Sheet" class="headerlink" title="14. Mini Formula Sheet"></a>14. Mini Formula Sheet</h2><ul>
+<li><strong>Bayes:</strong> $P(A\mid B)&#x3D;\frac{P(B\mid A)P(A)}{\sum_i P(B\mid A_i)P(A_i)}$.</li>
+<li><strong>Linearity:</strong> $E\big[\sum a_i X_i\big]&#x3D;\sum a_i E[X_i]$.</li>
+<li><strong>Var add (indep):</strong> $\operatorname{Var}(\sum X_i)&#x3D;\sum \operatorname{Var}(X_i)$.</li>
+<li><strong>Convolution:</strong> discrete sum&#x2F;continuous integral.</li>
+<li><strong>MGF mult:</strong> independence ⇒ multiply MGFs.</li>
+<li><strong>Exponential memoryless:</strong> $P(X&gt;s+t\mid X&gt;s)&#x3D;P(X&gt;t)$.</li>
+<li><strong>LLN&#x2F;CLT</strong> as above.</li>
+</ul>
+<hr>
+<h3 id="Final-tip"><a href="#Final-tip" class="headerlink" title="Final tip"></a>Final tip</h3><p>When stuck: <strong>Condition on a good event</strong> (partition), <strong>apply LOTUS</strong>, or <strong>switch to MGFs</strong>. Draw a tree&#x2F;table; name every probability you write. If you can’t state the model clearly, you can’t compute correctly.</p>
+<hr>
+<p>2025&#x2F;8&#x2F;13 Harvard stat 110 notes, rewritten and structured for clarity and exam readiness by ChatGPT5.</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://znnnnnh2.icu">ZnnnnnH2</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://znnnnnh2.icu/2025/08/13/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%B0%8F%E7%BB%93/">https://znnnnnh2.icu/2025/08/13/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%B0%8F%E7%BB%93/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://znnnnnh2.icu" target="_blank">ZnnnnnH2 小屋</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/">概率论</a></div><div class="post-share"><div class="social-share" data-image="/img/butterfly-icon.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/08/03/ics-05-learned/" title="ics-05_learned"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">ics-05_learned</div></div><div class="info-2"><div class="info-item-1">观察到page是一个可控的post参数，通过/index.php?page=php://filter/read=convert.base64-encode/resource=index.php可以读取到index.php的内容。 ctype_alnum($page)函数用于检测字符串是否只由字母和数字组成，因此可以用来对page参数进行初步的安全检查。 strpos($page, &#39;input&#39;) &gt; 0函数用于检查page参数中是否包含字符串input出现的第一个匹配的位置，如果存在则返回匹配的位置，否则返回false。 </div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">ZnnnnnH2</div><div class="author-info-description">To output, to share, to record, to learn, to grow.</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ZnnnnnH2"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/ZnnnnnH2" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:znnnnnh2@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#STAT-110-%E2%80%93-Probability-Study-Notes-Rewritten-Structured"><span class="toc-number">1.</span> <span class="toc-text">STAT 110 – Probability Study Notes (Rewritten &amp; Structured)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-Quick-Roadmap-What-to-use-when"><span class="toc-number">1.1.</span> <span class="toc-text">0. Quick Roadmap (What to use when)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Probability-Foundations"><span class="toc-number">1.2.</span> <span class="toc-text">1. Probability Foundations</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-Sample-space-events-axioms"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.1 Sample space, events, axioms</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Counting-uniform-models"><span class="toc-number">1.2.2.</span> <span class="toc-text">1.2 Counting (uniform models)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Conditioning-Bayes-and-Total-Probability"><span class="toc-number">1.3.</span> <span class="toc-text">2. Conditioning, Bayes, and Total Probability</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Random-Variables-RVs"><span class="toc-number">1.4.</span> <span class="toc-text">3. Random Variables (RVs)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-Discrete-basics"><span class="toc-number">1.4.1.</span> <span class="toc-text">3.1 Discrete basics</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Canonical-discrete-families"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">Canonical discrete families</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-Continuous-basics"><span class="toc-number">1.4.2.</span> <span class="toc-text">3.2 Continuous basics</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Canonical-continuous-families"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">Canonical continuous families</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Joint-Distributions-Covariance-Convolution"><span class="toc-number">1.5.</span> <span class="toc-text">4. Joint Distributions, Covariance, Convolution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-MGFs-Sums"><span class="toc-number">1.6.</span> <span class="toc-text">5. MGFs &amp; Sums</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Special-Families-Order-Statistics"><span class="toc-number">1.7.</span> <span class="toc-text">6. Special Families &amp; Order Statistics</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-Beta-Gamma"><span class="toc-number">1.7.1.</span> <span class="toc-text">6.1 Beta &amp; Gamma</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-Offshoots-of-the-Normal"><span class="toc-number">1.7.2.</span> <span class="toc-text">6.2 Offshoots of the Normal</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-Order-statistics"><span class="toc-number">1.7.3.</span> <span class="toc-text">6.3 Order statistics</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Inequalities-LLN-and-CLT"><span class="toc-number">1.8.</span> <span class="toc-text">7. Inequalities, LLN, and CLT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Multivariate-Normal-MVN"><span class="toc-number">1.9.</span> <span class="toc-text">8. Multivariate Normal (MVN)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-Markov-Chains-finite%E2%80%91state"><span class="toc-number">1.10.</span> <span class="toc-text">9. Markov Chains (finite‑state)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-Cauchy-the-friendly-monster"><span class="toc-number">1.11.</span> <span class="toc-text">10. Cauchy (the friendly monster)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-Sampling-Inverse-Probability-Weighting-IPW"><span class="toc-number">1.12.</span> <span class="toc-text">11. Sampling &amp; Inverse Probability Weighting (IPW)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#11-1-Why-weights"><span class="toc-number">1.12.1.</span> <span class="toc-text">11.1 Why weights?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-2-%E2%80%9CAll-weights-1-%E2%87%92-estimate-must-be-too-large-%E2%80%9D-No"><span class="toc-number">1.12.2.</span> <span class="toc-text">11.2 “All weights &gt; 1 ⇒ estimate must be too large?” (No.)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-Worked-Micro%E2%80%91Examples-quick-patterns"><span class="toc-number">1.13.</span> <span class="toc-text">12. Worked Micro‑Examples (quick patterns)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-Common-Pitfalls-How-to-Self%E2%80%91Check"><span class="toc-number">1.14.</span> <span class="toc-text">13. Common Pitfalls &amp; How to Self‑Check</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-Mini-Formula-Sheet"><span class="toc-number">1.15.</span> <span class="toc-text">14. Mini Formula Sheet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Final-tip"><span class="toc-number">1.15.1.</span> <span class="toc-text">Final tip</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/13/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%B0%8F%E7%BB%93/" title="概率论小结">概率论小结</a><time datetime="2025-08-12T17:10:29.000Z" title="发表于 2025-08-13 01:10:29">2025-08-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/03/ics-05-learned/" title="ics-05_learned">ics-05_learned</a><time datetime="2025-08-03T02:42:32.000Z" title="发表于 2025-08-03 10:42:32">2025-08-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/02/Web-php-include-learned/" title="Web_php_include_learned">Web_php_include_learned</a><time datetime="2025-08-02T13:36:49.000Z" title="发表于 2025-08-02 21:36:49">2025-08-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/01/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E7%BB%83%E4%B9%A0/" title="php反序列化练习">php反序列化练习</a><time datetime="2025-08-01T15:05:16.000Z" title="发表于 2025-08-01 23:05:16">2025-08-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/26/pandas/" title="pandas 基础">pandas 基础</a><time datetime="2025-07-25T16:32:00.000Z" title="发表于 2025-07-26 00:32:00">2025-07-26</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 By ZnnnnnH2</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
