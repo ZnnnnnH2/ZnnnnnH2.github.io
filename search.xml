@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>wsl常用</title>
+      <link href="/2025/08/31/wsl%E5%B8%B8%E7%94%A8/"/>
+      <url>/2025/08/31/wsl%E5%B8%B8%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<h2 id="网络相关"><a href="#网络相关" class="headerlink" title="网络相关"></a>网络相关</h2><h3 id="网络配置问题"><a href="#网络配置问题" class="headerlink" title="网络配置问题"></a>网络配置问题</h3><p>获取网络配置, wsl 端</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wslinfo --networking-mode</span><br></pre></td></tr></table></figure><h3 id="apt-get-不会自动使用-windows-代理"><a href="#apt-get-不会自动使用-windows-代理" class="headerlink" title="apt-get 不会自动使用 windows 代理"></a>apt-get 不会自动使用 windows 代理</h3><p>Bypass apt proxy completely</p><ol><li><p>Inside WSL:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">unset</span> http_proxy https_proxy HTTP_PROXY HTTPS_PROXY all_proxy ALL_PROXY no_proxy NO_PROXY</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">rm</span> -f /etc/apt/apt.conf.d/proxy.conf</span><br></pre></td></tr></table></figure></li><li><p>Then force IPv4:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get -o Acquire::ForceIPv4=<span class="literal">true</span> update</span><br><span class="line"><span class="built_in">sudo</span> apt-get -o Acquire::ForceIPv4=<span class="literal">true</span> install -y nodejs</span><br></pre></td></tr></table></figure></li></ol><h2 id="路径相关"><a href="#路径相关" class="headerlink" title="路径相关"></a>路径相关</h2><h3 id="输出绝对路径"><a href="#输出绝对路径" class="headerlink" title="输出绝对路径"></a>输出绝对路径</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">realpath</span> ~/node_modules/prettier</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Pyjail 练习</title>
       <link href="/2025/08/26/Pyjail-%E7%BB%83%E4%B9%A0/"/>
       <url>/2025/08/26/Pyjail-%E7%BB%83%E4%B9%A0/</url>
@@ -33,9 +46,9 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> pyjail </tag>
+            
+            <tag> python </tag>
             
         </tags>
       
