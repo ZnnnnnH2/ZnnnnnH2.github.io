@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>Pyjail 练习</title>
+      <link href="/2025/08/26/Pyjail-%E7%BB%83%E4%B9%A0/"/>
+      <url>/2025/08/26/Pyjail-%E7%BB%83%E4%B9%A0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="HNCTF-2022-Week1-calc-jail-beginner-level1-JAIL"><a href="#HNCTF-2022-Week1-calc-jail-beginner-level1-JAIL" class="headerlink" title="[HNCTF 2022 Week1]calc_jail_beginner_level1(JAIL)"></a>[HNCTF 2022 Week1]calc_jail_beginner_level1(JAIL)</h2><p>过滤了 ‘ “ i b</p><p>考虑使用 <code>chr()</code> 拼接字符串</p><h2 id="HNCTF-2022-Week1-calc-jail-beginner-level2-JAIL"><a href="#HNCTF-2022-Week1-calc-jail-beginner-level2-JAIL" class="headerlink" title="[HNCTF 2022 Week1]calc_jail_beginner_level2(JAIL)"></a>[HNCTF 2022 Week1]calc_jail_beginner_level2(JAIL)</h2><p>限制字符串长度</p><p>使用 <code>input()</code> 读取输入</p><h2 id="HNCTF-2022-Week1-calc-jail-beginner-level2-5-JAIL"><a href="#HNCTF-2022-Week1-calc-jail-beginner-level2-5-JAIL" class="headerlink" title="[HNCTF 2022 Week1]calc_jail_beginner_level2.5(JAIL)"></a>[HNCTF 2022 Week1]calc_jail_beginner_level2.5(JAIL)</h2><p>限制字符串长度同时过滤了<code>exec</code> <code>eval</code> <code>input()</code></p><p>考虑使用 unicode 碰撞</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Welcome to the python jail</span><br><span class="line">Let<span class="string">&#x27;s have an beginner jail of calc</span></span><br><span class="line"><span class="string">Enter your expression and I will evaluate it for you.</span></span><br><span class="line"><span class="string">&gt; 𝓮val(inp𝓾t())</span></span><br><span class="line"><span class="string">Oh hacker!</span></span><br></pre></td></tr></table></figure><p>原因未知</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>pyjail学习笔记_基础内容篇</title>
       <link href="/2025/08/13/pyjail%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0_%E5%9F%BA%E7%A1%80%E5%86%85%E5%AE%B9%E7%AF%87/"/>
       <url>/2025/08/13/pyjail%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0_%E5%9F%BA%E7%A1%80%E5%86%85%E5%AE%B9%E7%AF%87/</url>
