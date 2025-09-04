@@ -4,11 +4,36 @@
   
     
     <entry>
+      <title>大二日记-暑期集训</title>
+      <link href="/2025/08/31/%E5%A4%A7%E4%BA%8C%E6%97%A5%E8%AE%B0-%E6%9A%91%E6%9C%9F%E9%9B%86%E8%AE%AD/"/>
+      <url>/2025/08/31/%E5%A4%A7%E4%BA%8C%E6%97%A5%E8%AE%B0-%E6%9A%91%E6%9C%9F%E9%9B%86%E8%AE%AD/</url>
+      
+        <content type="html"><![CDATA[<h1 id="大二日记-暑期集训"><a href="#大二日记-暑期集训" class="headerlink" title="大二日记-暑期集训"></a>大二日记-暑期集训</h1><p>大二生活就这样开始了，不知不觉也成了学校的老登。</p><p>集训的生活倒是没啥可说的，听课效率和正常别无二致，基本上是在写布置的作业。每天都对着 vscode 在键盘上敲击，一天也就过去了。</p><p>贪吃蛇对抗赛倒是很有趣的结课活动，也算得上是信院的悠久历史传统了，基本从零开始写的程序甚至比 cs61b 上写的 gitlet 更让人印象深刻。搜索、寻路、博弈也确实让我看到了算法在竞赛之外的活力。</p><p>同时这应该也算是我大量使用 ai 辅助编程的开始。微软真是大善人，免费 copilot pro 用到爽。但确实会发现当脑子里没有规划，只是一味得用自然语言向 ai 描述自己的问题时，得到的结果往往不尽如人意。毕竟 ai 也只是个工具，不能完全代替人类的思考。于是到最后我就得到了一个 3000 行的 shit。在决赛暴毙两次遗憾三等奖。</p><p>ai 的弊病包括但不限于：</p><ol><li>给的文档是不看的</li><li>要求修改代码是偷懒的</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大二 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 日记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>wsl常用</title>
       <link href="/2025/08/31/wsl%E5%B8%B8%E7%94%A8/"/>
       <url>/2025/08/31/wsl%E5%B8%B8%E7%94%A8/</url>
       
-        <content type="html"><![CDATA[<h2 id="网络相关"><a href="#网络相关" class="headerlink" title="网络相关"></a>网络相关</h2><h3 id="网络配置问题"><a href="#网络配置问题" class="headerlink" title="网络配置问题"></a>网络配置问题</h3><p>获取网络配置, wsl 端</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wslinfo --networking-mode</span><br></pre></td></tr></table></figure><h3 id="apt-get-不会自动使用-windows-代理"><a href="#apt-get-不会自动使用-windows-代理" class="headerlink" title="apt-get 不会自动使用 windows 代理"></a>apt-get 不会自动使用 windows 代理</h3><p>Bypass apt proxy completely</p><ol><li><p>Inside WSL:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">unset</span> http_proxy https_proxy HTTP_PROXY HTTPS_PROXY all_proxy ALL_PROXY no_proxy NO_PROXY</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">rm</span> -f /etc/apt/apt.conf.d/proxy.conf</span><br></pre></td></tr></table></figure></li><li><p>Then force IPv4:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get -o Acquire::ForceIPv4=<span class="literal">true</span> update</span><br><span class="line"><span class="built_in">sudo</span> apt-get -o Acquire::ForceIPv4=<span class="literal">true</span> install -y nodejs</span><br></pre></td></tr></table></figure></li></ol><h2 id="路径相关"><a href="#路径相关" class="headerlink" title="路径相关"></a>路径相关</h2><h3 id="输出绝对路径"><a href="#输出绝对路径" class="headerlink" title="输出绝对路径"></a>输出绝对路径</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">realpath</span> ~/node_modules/prettier</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h2 id="网络相关"><a href="#网络相关" class="headerlink" title="网络相关"></a>网络相关</h2><h3 id="网络配置问题"><a href="#网络配置问题" class="headerlink" title="网络配置问题"></a>网络配置问题</h3><p>获取网络配置, wsl 端</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wslinfo --networking-mode</span><br></pre></td></tr></table></figure><h3 id="apt-不会自动使用-windows-代理，即使是在虚拟网卡加-mirrored-模式"><a href="#apt-不会自动使用-windows-代理，即使是在虚拟网卡加-mirrored-模式" class="headerlink" title="apt 不会自动使用 windows 代理，即使是在虚拟网卡加 mirrored 模式"></a>apt 不会自动使用 windows 代理，即使是在虚拟网卡加 mirrored 模式</h3><ol><li><p>设置代理:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> http_proxy=<span class="string">&quot;http://localhost:7890&quot;</span></span><br><span class="line"><span class="built_in">export</span> https_proxy=<span class="string">&quot;http://localhost:7890&quot;</span></span><br></pre></td></tr></table></figure></li><li><p>测试 apt 的网络连接方式:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update -o Debug::Acquire::http=<span class="literal">true</span></span><br></pre></td></tr></table></figure></li><li><p>但<code>sudo</code>默认不会继承用户环境变量，解决方法：</p><ol><li><p>在 <code>/etc/apt/apt.conf.d/</code> 下新建一个配置文件，例如 <code>/etc/apt/apt.conf.d/proxy.conf</code>，但配置完成后重新使用<code>sudo apt update -o Debug::Acquire::http=true</code>速度明显变快但仍是 GET 直接访问，（不懂）：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Acquire &#123;</span><br><span class="line">HTTP::proxy <span class="string">&quot;http://localhost:7890&quot;</span>;</span><br><span class="line">HTTPS::proxy <span class="string">&quot;http://localhost:7890&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol></li></ol><h2 id="路径相关"><a href="#路径相关" class="headerlink" title="路径相关"></a>路径相关</h2><h3 id="输出绝对路径"><a href="#输出绝对路径" class="headerlink" title="输出绝对路径"></a>输出绝对路径</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">realpath</span> ~/node_modules/prettier</span><br></pre></td></tr></table></figure>]]></content>
       
       
       
@@ -46,9 +71,9 @@
       
         <tags>
             
-            <tag> pyjail </tag>
-            
             <tag> python </tag>
+            
+            <tag> pyjail </tag>
             
         </tags>
       
