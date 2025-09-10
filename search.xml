@@ -4,11 +4,36 @@
   
     
     <entry>
+      <title>NewStar-2023</title>
+      <link href="/2025/09/09/NewStar-2023/"/>
+      <url>/2025/09/09/NewStar-2023/</url>
+      
+        <content type="html"><![CDATA[<h1 id="New-Star-2023"><a href="#New-Star-2023" class="headerlink" title="New-Star-2023"></a>New-Star-2023</h1><h2 id="检查和查看页面源代码的区别"><a href="#检查和查看页面源代码的区别" class="headerlink" title="检查和查看页面源代码的区别"></a>检查和查看页面源代码的区别</h2><ul><li><p><strong>查看页面源代码（View Source）</strong></p><ul><li>看的是：<strong>服务器最初返回的原始 HTML 文本</strong>。</li><li>时间点：<strong>页面加载瞬间</strong>的快照（不执行 JS 的结果）。</li><li>特性：只展示初始 HTML；后续通过 JS 动态插入&#x2F;修改的节点<strong>看不到</strong>。不交互、只读。</li><li>适合：看服务器端是否输出了某段标记（SSR&#x2F;SEO 检查）、确认初始结构、了解响应体。</li></ul></li><li><p><strong>检查 &#x2F; 检查元素（Inspect &#x2F; DevTools）</strong></p><ul><li>看的是：<strong>浏览器当前内存里的“活的” DOM</strong>（包含 JS 动态改动、异步加载后的内容）。</li><li>时间点：<strong>此刻</strong>（可随脚本和你的操作实时变化）。</li><li>特性：可展开&#x2F;编辑 DOM、看&#x2F;改 CSS、看事件监听、调试 JS、看 Network&#x2F;性能&#x2F;存储等。</li><li>适合：排版样式问题、元素布局与盒模型、脚本错误、接口请求、SPA&#x2F;CSR 页面结构。</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> ctf </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> NewStar </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>大二日记-暑期集训</title>
       <link href="/2025/08/31/%E5%A4%A7%E4%BA%8C%E6%97%A5%E8%AE%B0-%E6%9A%91%E6%9C%9F%E9%9B%86%E8%AE%AD/"/>
       <url>/2025/08/31/%E5%A4%A7%E4%BA%8C%E6%97%A5%E8%AE%B0-%E6%9A%91%E6%9C%9F%E9%9B%86%E8%AE%AD/</url>
       
-        <content type="html"><![CDATA[<h1 id="大二日记-暑期集训"><a href="#大二日记-暑期集训" class="headerlink" title="大二日记-暑期集训"></a>大二日记-暑期集训</h1><p>大二生活就这样开始了，不知不觉也成了学校的老登。</p><p>集训的生活倒是没啥可说的，听课效率和正常别无二致，基本上是在写布置的作业。每天都对着 vscode 在键盘上敲击，一天也就过去了。</p><p>贪吃蛇对抗赛倒是很有趣的结课活动，也算得上是信院的悠久历史传统了，基本从零开始写的程序甚至比 cs61b 上写的 gitlet 更让人印象深刻。搜索、寻路、博弈也确实让我看到了算法在竞赛之外的活力。</p><p>同时这应该也算是我大量使用 ai 辅助编程的开始。微软真是大善人，免费 copilot pro 用到爽。但确实会发现当脑子里没有规划，只是一味得用自然语言向 ai 描述自己的问题时，得到的结果往往不尽如人意。毕竟 ai 也只是个工具，不能完全代替人类的思考。于是到最后我就得到了一个 3000 行的 shit。在决赛暴毙两次遗憾三等奖。</p><p>ai 的弊病包括但不限于：</p><ol><li>给的文档是不看的</li><li>要求修改代码是偷懒的</li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="大二日记-暑期集训"><a href="#大二日记-暑期集训" class="headerlink" title="大二日记-暑期集训"></a>大二日记-暑期集训</h1><p>大二生活就这样开始了，不知不觉也成了学校的老登。</p><p>集训的生活倒是没啥可说的，听课效率和正常别无二致，基本上是在写布置的作业。每天都对着 vscode 在键盘上敲击，一天也就过去了。</p><p>贪吃蛇对抗赛倒是很有趣的结课活动，也算得上是信院的悠久历史传统了，基本从零开始写的程序甚至比 cs61b 上写的 gitlet 更让人印象深刻。搜索、寻路、博弈也确实让我看到了算法在竞赛之外的活力。</p><p>同时这应该也算是我大量使用 ai 辅助编程的开始。微软真是大善人，免费 copilot pro 用到爽。但确实会发现当脑子里没有规划，只是一味得用自然语言向 ai 描述自己的问题时，得到的结果往往不尽如人意。毕竟 ai 也只是个工具，不能完全代替人类的思考。于是到最后我就得到了一个 3000 行的 shit。在决赛暴毙两次遗憾三等奖。</p><p>ai 的弊病包括但不限于：</p><ol><li>给的文档是不看的</li><li>要求修改代码是偷懒的</li></ol><p>比完贪吃蛇紧接着就是国赛，无奈三个人对统计毫无准备一窍不通，只得选择 A 题。</p><p>静待结果吧</p><p>比完赛以后三人以 89 元汉堡自助结束，小食难吃，汉堡还行，总体来说不如 kfc。我的大一就这样在晚风中画上了句号。</p>]]></content>
       
       
       <categories>
@@ -71,9 +96,9 @@
       
         <tags>
             
-            <tag> pyjail </tag>
-            
             <tag> python </tag>
+            
+            <tag> pyjail </tag>
             
         </tags>
       
