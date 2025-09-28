@@ -4,13 +4,25 @@
   
     
     <entry>
-      <title></title>
-      <link href="/2025/09/14/NewStar-2024/"/>
-      <url>/2025/09/14/NewStar-2024/</url>
+      <title>NewStar-2024</title>
+      <link href="/2025/09/09/NewStar-2024/"/>
+      <url>/2025/09/09/NewStar-2024/</url>
       
-        <content type="html"><![CDATA[<h1 id="New-Star-2024"><a href="#New-Star-2024" class="headerlink" title="New Star 2024"></a>New Star 2024</h1><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><h2 id="week1"><a href="#week1" class="headerlink" title="week1"></a>week1</h2><h3 id="PangBai-过家家（1）"><a href="#PangBai-过家家（1）" class="headerlink" title="PangBai 过家家（1）"></a>PangBai 过家家（1）</h3><h4 id="Patch"><a href="#Patch" class="headerlink" title="Patch"></a>Patch</h4><h4 id="JWT"><a href="#JWT" class="headerlink" title="JWT"></a>JWT</h4>]]></content>
+        <content type="html"><![CDATA[<h1 id="New-Star-2024"><a href="#New-Star-2024" class="headerlink" title="New Star 2024"></a>New Star 2024</h1><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><h2 id="week1"><a href="#week1" class="headerlink" title="week1"></a>week1</h2><h3 id="PangBai-过家家（1）"><a href="#PangBai-过家家（1）" class="headerlink" title="PangBai 过家家（1）"></a>PangBai 过家家（1）</h3><p>很麻烦 ：）</p><p>每个故事给一段flag，最后需要base64decode</p><h4 id="Q1"><a href="#Q1" class="headerlink" title="Q1"></a>Q1</h4><p>隐藏在 headers 的 location 字段里</p><h4 id="Q2、Q3、Q4"><a href="#Q2、Q3、Q4" class="headerlink" title="Q2、Q3、Q4"></a>Q2、Q3、Q4</h4><p>通过get、post、cookie传递参数</p><p>POST 的查询类型有很多种，通过 HTTP 报文中的 Content-Type 指定，以告诉服务端用何种方式解析报文 Body 的内容。</p><table><thead><tr><th>Content-Type</th><th>描述</th></tr></thead><tbody><tr><td>application&#x2F;x-www-form-urlencoded</td><td>和 GET 查询字段的写法一样，开头不需要 ?，用 &amp; 符号连接各查询参数，遇到特殊字符需要进行转义。</td></tr><tr><td>application&#x2F;json</td><td>Body 给出一个 JSON 格式的数据，服务端会解析它。</td></tr><tr><td>multipart&#x2F;form-data</td><td>表单字段，一般用于有文件等复杂类型的场景。</td></tr></tbody></table><p>post 发送的请求内容不需要携带<code>&#39;&#39;</code></p><h4 id="Patch"><a href="#Patch" class="headerlink" title="Patch"></a>Patch</h4><h4 id="JWT"><a href="#JWT" class="headerlink" title="JWT"></a>JWT</h4><p>JWT 是 JSON Web Token 的缩写，是一种用于在网络应用环境中传递声明的紧凑且自包含的方式。它通常用于身份验证和信息交换。</p><ul><li>结构：由三部分组成，分别是头部（Header）、载荷（Payload）和签名（Signature），格式为 <code>header.payload.signature</code>。</li><li>编码：头部和载荷部分使用 Base64Url 编码，签名部分是对前两部分进行签名生成的。</li></ul><h2 id="week2"><a href="#week2" class="headerlink" title="week2"></a>week2</h2><h3 id="你能在1s内打出8句英文吗"><a href="#你能在1s内打出8句英文吗" class="headerlink" title="你能在1s内打出8句英文吗"></a>你能在1s内打出8句英文吗</h3><h4 id="session"><a href="#session" class="headerlink" title="session()"></a>session()</h4><p>使用session()函数来启动一个会话，允许你在多个请求之间存储和检索数据。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">session = requests.session()</span><br><span class="line">response = session.get(<span class="string">&#x27;http://example.com&#x27;</span>)</span><br></pre></td></tr></table></figure><h3 id="复读机"><a href="#复读机" class="headerlink" title="复读机"></a>复读机</h3><h4 id="SSTI-注入"><a href="#SSTI-注入" class="headerlink" title="SSTI 注入"></a>SSTI 注入</h4>]]></content>
       
       
+      <categories>
+          
+          <category> ctf </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> NewStar </tag>
+            
+        </tags>
       
     </entry>
     
@@ -21,7 +33,7 @@
       <link href="/2025/09/09/NewStar-2023/"/>
       <url>/2025/09/09/NewStar-2023/</url>
       
-        <content type="html"><![CDATA[<h1 id="New-Star-2023"><a href="#New-Star-2023" class="headerlink" title="New-Star-2023"></a>New-Star-2023</h1><h2 id="检查和查看页面源代码的区别"><a href="#检查和查看页面源代码的区别" class="headerlink" title="检查和查看页面源代码的区别"></a>检查和查看页面源代码的区别</h2><ul><li><p><strong>查看页面源代码（View Source）</strong></p><ul><li>看的是：<strong>服务器最初返回的原始 HTML 文本</strong>。</li><li>时间点：<strong>页面加载瞬间</strong>的快照（不执行 JS 的结果）。</li><li>特性：只展示初始 HTML；后续通过 JS 动态插入&#x2F;修改的节点<strong>看不到</strong>。不交互、只读。</li><li>适合：看服务器端是否输出了某段标记（SSR&#x2F;SEO 检查）、确认初始结构、了解响应体。</li></ul></li><li><p><strong>检查 &#x2F; 检查元素（Inspect &#x2F; DevTools）</strong></p><ul><li>看的是：<strong>浏览器当前内存里的“活的” DOM</strong>（包含 JS 动态改动、异步加载后的内容）。</li><li>时间点：<strong>此刻</strong>（可随脚本和你的操作实时变化）。</li><li>特性：可展开&#x2F;编辑 DOM、看&#x2F;改 CSS、看事件监听、调试 JS、看 Network&#x2F;性能&#x2F;存储等。</li><li>适合：排版样式问题、元素布局与盒模型、脚本错误、接口请求、SPA&#x2F;CSR 页面结构。</li></ul></li></ul><h2 id="对网页进行路径扫描"><a href="#对网页进行路径扫描" class="headerlink" title="对网页进行路径扫描"></a>对网页进行路径扫描</h2><ul><li>工具：<code>ffuf</code>、<code>gobuster</code>、<code>dirsearch</code>、<code>wfuzz</code></li><li><h2 id="字典："><a href="#字典：" class="headerlink" title="字典："></a>字典：</h2></li></ul><h3 id="ffuf"><a href="#ffuf" class="headerlink" title="ffuf"></a>ffuf</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffuf -w /path/to/wordlist -u http://example.com/FUZZ</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h1 id="New-Star-2023"><a href="#New-Star-2023" class="headerlink" title="New-Star-2023"></a>New-Star-2023</h1><h2 id="检查和查看页面源代码的区别"><a href="#检查和查看页面源代码的区别" class="headerlink" title="检查和查看页面源代码的区别"></a>检查和查看页面源代码的区别</h2><ul><li><p><strong>查看页面源代码（View Source）</strong></p><ul><li>看的是：<strong>服务器最初返回的原始 HTML 文本</strong>。</li><li>时间点：<strong>页面加载瞬间</strong>的快照（不执行 JS 的结果）。</li><li>特性：只展示初始 HTML；后续通过 JS 动态插入&#x2F;修改的节点<strong>看不到</strong>。不交互、只读。</li><li>适合：看服务器端是否输出了某段标记（SSR&#x2F;SEO 检查）、确认初始结构、了解响应体。</li></ul></li><li><p><strong>检查 &#x2F; 检查元素（Inspect &#x2F; DevTools）</strong></p><ul><li>看的是：<strong>浏览器当前内存里的“活的” DOM</strong>（包含 JS 动态改动、异步加载后的内容）。</li><li>时间点：<strong>此刻</strong>（可随脚本和你的操作实时变化）。</li><li>特性：可展开&#x2F;编辑 DOM、看&#x2F;改 CSS、看事件监听、调试 JS、看 Network&#x2F;性能&#x2F;存储等。</li><li>适合：排版样式问题、元素布局与盒模型、脚本错误、接口请求、SPA&#x2F;CSR 页面结构。</li></ul></li></ul><h2 id="泄漏的秘密"><a href="#泄漏的秘密" class="headerlink" title="泄漏的秘密"></a>泄漏的秘密</h2><p>题目给的是web根目录有文件泄露。考验路径扫描</p><h3 id="对网页进行路径扫描"><a href="#对网页进行路径扫描" class="headerlink" title="对网页进行路径扫描"></a>对网页进行路径扫描</h3><ul><li>工具：<code>ffuf</code>、<code>gobuster</code>、<code>dirsearch</code>、<code>wfuzz</code></li><li>字典：待找</li></ul><h4 id="ffuf-使用方法"><a href="#ffuf-使用方法" class="headerlink" title="ffuf 使用方法"></a>ffuf 使用方法</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffuf -w /path/to/wordlist -u http://example.com/FUZZ</span><br></pre></td></tr></table></figure><h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
       
       
       <categories>
