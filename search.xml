@@ -4,11 +4,61 @@
   
     
     <entry>
-      <title>NewStar-2024</title>
-      <link href="/2025/09/09/NewStar-2024/"/>
-      <url>/2025/09/09/NewStar-2024/</url>
+      <title>常见php函数</title>
+      <link href="/2025/10/02/%E5%B8%B8%E8%A7%81php%E5%87%BD%E6%95%B0/"/>
+      <url>/2025/10/02/%E5%B8%B8%E8%A7%81php%E5%87%BD%E6%95%B0/</url>
       
-        <content type="html"><![CDATA[<h1 id="New-Star-2024"><a href="#New-Star-2024" class="headerlink" title="New Star 2024"></a>New Star 2024</h1><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><h2 id="week1"><a href="#week1" class="headerlink" title="week1"></a>week1</h2><h3 id="PangBai-过家家（1）"><a href="#PangBai-过家家（1）" class="headerlink" title="PangBai 过家家（1）"></a>PangBai 过家家（1）</h3><p>很麻烦 ：）</p><p>每个故事给一段flag，最后需要base64decode</p><h4 id="Q1"><a href="#Q1" class="headerlink" title="Q1"></a>Q1</h4><p>隐藏在 headers 的 location 字段里</p><h4 id="Q2、Q3、Q4"><a href="#Q2、Q3、Q4" class="headerlink" title="Q2、Q3、Q4"></a>Q2、Q3、Q4</h4><p>通过get、post、cookie传递参数</p><p>POST 的查询类型有很多种，通过 HTTP 报文中的 Content-Type 指定，以告诉服务端用何种方式解析报文 Body 的内容。</p><table><thead><tr><th>Content-Type</th><th>描述</th></tr></thead><tbody><tr><td>application&#x2F;x-www-form-urlencoded</td><td>和 GET 查询字段的写法一样，开头不需要 ?，用 &amp; 符号连接各查询参数，遇到特殊字符需要进行转义。</td></tr><tr><td>application&#x2F;json</td><td>Body 给出一个 JSON 格式的数据，服务端会解析它。</td></tr><tr><td>multipart&#x2F;form-data</td><td>表单字段，一般用于有文件等复杂类型的场景。</td></tr></tbody></table><p>post 发送的请求内容不需要携带<code>&#39;&#39;</code></p><h4 id="Patch"><a href="#Patch" class="headerlink" title="Patch"></a>Patch</h4><h4 id="JWT"><a href="#JWT" class="headerlink" title="JWT"></a>JWT</h4><p>JWT 是 JSON Web Token 的缩写，是一种用于在网络应用环境中传递声明的紧凑且自包含的方式。它通常用于身份验证和信息交换。</p><ul><li>结构：由三部分组成，分别是头部（Header）、载荷（Payload）和签名（Signature），格式为 <code>header.payload.signature</code>。</li><li>编码：头部和载荷部分使用 Base64Url 编码，签名部分是对前两部分进行签名生成的。</li></ul><h2 id="week2"><a href="#week2" class="headerlink" title="week2"></a>week2</h2><h3 id="你能在1s内打出8句英文吗"><a href="#你能在1s内打出8句英文吗" class="headerlink" title="你能在1s内打出8句英文吗"></a>你能在1s内打出8句英文吗</h3><h4 id="session"><a href="#session" class="headerlink" title="session()"></a>session()</h4><p>使用session()函数来启动一个会话，允许你在多个请求之间存储和检索数据。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">session = requests.session()</span><br><span class="line">response = session.get(<span class="string">&#x27;http://example.com&#x27;</span>)</span><br></pre></td></tr></table></figure><h3 id="复读机"><a href="#复读机" class="headerlink" title="复读机"></a>复读机</h3><h4 id="SSTI-注入"><a href="#SSTI-注入" class="headerlink" title="SSTI 注入"></a>SSTI 注入</h4>]]></content>
+        <content type="html"><![CDATA[<ol><li><code>strpos()</code></li></ol><p>语法：</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">strpos</span>(<span class="keyword">string</span> <span class="variable">$haystack</span>, <span class="keyword">string</span> <span class="variable">$needle</span>, <span class="keyword">int</span> <span class="variable">$offset</span> = <span class="number">0</span>): <span class="keyword">int</span>|<span class="literal">false</span></span><br></pre></td></tr></table></figure><p>功能：返回子字符串 <code>$needle</code> 在 <code>$haystack</code> 中第一次出现的位置（下标，从 0 开始）。</p><p>返回值：</p><ul><li>找到时：返回位置下标（<code>int</code>）</li><li>找不到：返回 <code>false</code>（<code>bool</code>）</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> ctf </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> php </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>RCE远程代码执行漏洞学习笔记</title>
+      <link href="/2025/10/02/RCE%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <url>/2025/10/02/RCE%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="RCE"><a href="#RCE" class="headerlink" title="RCE"></a>RCE</h1><h2 id="简析"><a href="#简析" class="headerlink" title="简析"></a>简析</h2><h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><h3 id="NewStar2023-R-C-E"><a href="#NewStar2023-R-C-E" class="headerlink" title="NewStar2023 R!C!E"></a>NewStar2023 R!C!E</h3><h3 id="ctfHub-RCE-eval执行"><a href="#ctfHub-RCE-eval执行" class="headerlink" title="ctfHub-RCE-eval执行"></a>ctfHub-RCE-eval执行</h3><ul><li>exec() 执行“系统命令”</li><li>eval() 执行“PHP 代码”</li></ul><h3 id="ctfHub-RCE-命令注入"><a href="#ctfHub-RCE-命令注入" class="headerlink" title="ctfHub-RCE-命令注入"></a>ctfHub-RCE-命令注入</h3><h4 id="无过滤"><a href="#无过滤" class="headerlink" title="无过滤"></a>无过滤</h4><p>使用<code>&amp;&amp;</code>连接命令，通过查看源代码找到 flag</p><ul><li>; 不管成功失败都继续下一条</li><li>&amp;&amp; 前一条成功才执行下一条</li><li>|| 前一条失败才执行下一条</li><li>| 把左边输出当右边输入</li><li>(…) 在子 shell 中执行一组命令</li><li>%0a 或 %0d</li></ul><h4 id="过滤-cat"><a href="#过滤-cat" class="headerlink" title="过滤 cat"></a>过滤 <code>cat</code></h4><p>使用 <code>tac</code> 代替 <code>cat</code></p><p>当cat被过滤后,可以使用一下命令进行读取文件的内容</p><ul><li>more:一页一页的显示的显示档案内容</li><li>less:与more类似,但是比more更好的是,他可以[pg dn][pg up]翻页</li><li>head:查看头几行</li><li>tac:从最后一行开始显示,可以看出tac是cat的反向显示</li><li>tail:查看尾几行</li><li>nl:显示的时候,顺便输出行号</li><li>od:以二进制的方式读取档案内容</li><li>vi:一种编辑器，这个也可以查看</li><li>vim:一种编辑器,这个也可以查看</li><li>sort:可以查看</li><li>uniq:可以查看</li><li>file -f:报错出具体的内容</li></ul><h4 id="过滤"><a href="#过滤" class="headerlink" title="过滤  "></a>过滤 <code> </code></h4><ul><li>使用 <code>&lt;</code> 重定向符代替空格，原理是将 <code>&lt;*</code> 重定向到命令的标准输入</li><li>使用 <code>$&#123;IFS&#125;</code> 代替空格，<code>IFS</code> 是环境变量，表示内部字段分隔符，默认是空格、制表符和换行符</li></ul><h4 id="过滤-1"><a href="#过滤-1" class="headerlink" title="过滤 /\"></a>过滤 <code>/\</code></h4><p>通过 ls 得知 flag 在 .&#x2F;flag_is_here&#x2F;flag_22183547332303.php 中</p><ul><li>使用命令<code>127.0.0.1&amp;&amp;cd flag_is_here&amp;&amp;cat flag_22183547332303.php</code></li><li>使用命令<code>127.0.0.1&amp;&amp;cd flag_is_here&amp;&amp;cat f*</code></li><li>使用命令<code>cat flag_is_here$&#123;PATH:0:1&#125;flag_252412887014927.php</code> 在<code>PATH</code> 环境变量中取第一个字符 <code>/</code></li></ul><h4 id="过滤关键字"><a href="#过滤关键字" class="headerlink" title="过滤关键字"></a>过滤关键字</h4><ul><li>使用 <code>\</code> 转义被过滤的字符</li><li>直接使用通配符，不使用完整字符串</li></ul><h3 id="ctfHub-RCE-文件包含"><a href="#ctfHub-RCE-文件包含" class="headerlink" title="ctfHub-RCE-文件包含"></a>ctfHub-RCE-文件包含</h3><ol><li>文件包含漏洞（File Inclusion）：程序把用户提供的路径或 URL 直接传给语言的包含函数（例如 PHP 的 include&#x2F;require），没有做足够的校验。</li><li>变成 RCE：攻击者把“恶意代码”放到服务器上（或让包含函数访问到带代码的资源），包含后语言解释器会执行这些代码 → 就变成了远程代码执行。</li></ol><h4 id="LFI"><a href="#LFI" class="headerlink" title="LFI"></a>LFI</h4><p>LFI（Local File Inclusion，本地文件包含）：只允许包含服务器本地的文件（比如 include($_GET[‘f’]);），如果能读到 &#x2F;etc&#x2F;passwd、应用日志等，可能被进一步利用。</p><h4 id="RFI"><a href="#RFI" class="headerlink" title="RFI"></a>RFI</h4><p>RFI（Remote File Inclusion，远程文件包含）：如果应用允许包含远程 URL（如 http:&#x2F;&#x2F;…），攻击者能让应用直接从远端拉取并执行恶意脚本（更直接的RCE）。</p><ol><li>确定是否允许远程包含：尝试传入 URL 或确认phpinfo 中的 allow_url_include 设置为 On。</li><li>上传恶意脚本：如果应用允许文件上传，可以上传一个包含恶意代码的脚本，使用php:&#x2F;&#x2F;input、data:&#x2F;&#x2F;等包装器。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> ctf </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> RCE </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>NewStar-2023</title>
+      <link href="/2025/09/09/NewStar-2023/"/>
+      <url>/2025/09/09/NewStar-2023/</url>
+      
+        <content type="html"><![CDATA[<h1 id="New-Star-2023"><a href="#New-Star-2023" class="headerlink" title="New-Star-2023"></a>New-Star-2023</h1><h2 id="检查和查看页面源代码的区别"><a href="#检查和查看页面源代码的区别" class="headerlink" title="检查和查看页面源代码的区别"></a>检查和查看页面源代码的区别</h2><ul><li><p><strong>查看页面源代码（View Source）</strong></p><ul><li>看的是：<strong>服务器最初返回的原始 HTML 文本</strong>。</li><li>时间点：<strong>页面加载瞬间</strong>的快照（不执行 JS 的结果）。</li><li>特性：只展示初始 HTML；后续通过 JS 动态插入&#x2F;修改的节点<strong>看不到</strong>。不交互、只读。</li><li>适合：看服务器端是否输出了某段标记（SSR&#x2F;SEO 检查）、确认初始结构、了解响应体。</li></ul></li><li><p><strong>检查 &#x2F; 检查元素（Inspect &#x2F; DevTools）</strong></p><ul><li>看的是：<strong>浏览器当前内存里的“活的” DOM</strong>（包含 JS 动态改动、异步加载后的内容）。</li><li>时间点：<strong>此刻</strong>（可随脚本和你的操作实时变化）。</li><li>特性：可展开&#x2F;编辑 DOM、看&#x2F;改 CSS、看事件监听、调试 JS、看 Network&#x2F;性能&#x2F;存储等。</li><li>适合：排版样式问题、元素布局与盒模型、脚本错误、接口请求、SPA&#x2F;CSR 页面结构。</li></ul></li></ul><h2 id="泄漏的秘密"><a href="#泄漏的秘密" class="headerlink" title="泄漏的秘密"></a>泄漏的秘密</h2><p>题目给的是web根目录有文件泄露。考验路径扫描</p><h3 id="对网页进行路径扫描"><a href="#对网页进行路径扫描" class="headerlink" title="对网页进行路径扫描"></a>对网页进行路径扫描</h3><ul><li>工具：<code>ffuf</code>、<code>gobuster</code>、<code>dirsearch</code>、<code>wfuzz</code></li><li>字典：待找</li></ul><h4 id="ffuf-使用方法"><a href="#ffuf-使用方法" class="headerlink" title="ffuf 使用方法"></a>ffuf 使用方法</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffuf -w /path/to/wordlist -u http://example.com/FUZZ</span><br></pre></td></tr></table></figure><h2 id="R-C-E"><a href="#R-C-E" class="headerlink" title="R!C!E"></a>R!C!E</h2><ul><li>用 json 传 post 竟然不会被 <code>_POST[&#39;key&#39;]</code> 读取到</li><li>对于 post 的 key 来说 <code>_</code> 可能是非法字符，直接无法直接通过 <code>x-www-form-urlencoded</code> 传递，需要将 <code>e_v.a.l</code> 里面的 <code>_</code> 号换成 <code>[</code></li><li><a href="https://zhuanlan.zhihu.com/p/391439312">针对远程代码执行漏洞的破解</a> 注：可行性堪忧，待验证</li></ul>]]></content>
       
       
       <categories>
@@ -29,11 +79,11 @@
     
     
     <entry>
-      <title>NewStar-2023</title>
-      <link href="/2025/09/09/NewStar-2023/"/>
-      <url>/2025/09/09/NewStar-2023/</url>
+      <title>NewStar-2024</title>
+      <link href="/2025/09/09/NewStar-2024/"/>
+      <url>/2025/09/09/NewStar-2024/</url>
       
-        <content type="html"><![CDATA[<h1 id="New-Star-2023"><a href="#New-Star-2023" class="headerlink" title="New-Star-2023"></a>New-Star-2023</h1><h2 id="检查和查看页面源代码的区别"><a href="#检查和查看页面源代码的区别" class="headerlink" title="检查和查看页面源代码的区别"></a>检查和查看页面源代码的区别</h2><ul><li><p><strong>查看页面源代码（View Source）</strong></p><ul><li>看的是：<strong>服务器最初返回的原始 HTML 文本</strong>。</li><li>时间点：<strong>页面加载瞬间</strong>的快照（不执行 JS 的结果）。</li><li>特性：只展示初始 HTML；后续通过 JS 动态插入&#x2F;修改的节点<strong>看不到</strong>。不交互、只读。</li><li>适合：看服务器端是否输出了某段标记（SSR&#x2F;SEO 检查）、确认初始结构、了解响应体。</li></ul></li><li><p><strong>检查 &#x2F; 检查元素（Inspect &#x2F; DevTools）</strong></p><ul><li>看的是：<strong>浏览器当前内存里的“活的” DOM</strong>（包含 JS 动态改动、异步加载后的内容）。</li><li>时间点：<strong>此刻</strong>（可随脚本和你的操作实时变化）。</li><li>特性：可展开&#x2F;编辑 DOM、看&#x2F;改 CSS、看事件监听、调试 JS、看 Network&#x2F;性能&#x2F;存储等。</li><li>适合：排版样式问题、元素布局与盒模型、脚本错误、接口请求、SPA&#x2F;CSR 页面结构。</li></ul></li></ul><h2 id="泄漏的秘密"><a href="#泄漏的秘密" class="headerlink" title="泄漏的秘密"></a>泄漏的秘密</h2><p>题目给的是web根目录有文件泄露。考验路径扫描</p><h3 id="对网页进行路径扫描"><a href="#对网页进行路径扫描" class="headerlink" title="对网页进行路径扫描"></a>对网页进行路径扫描</h3><ul><li>工具：<code>ffuf</code>、<code>gobuster</code>、<code>dirsearch</code>、<code>wfuzz</code></li><li>字典：待找</li></ul><h4 id="ffuf-使用方法"><a href="#ffuf-使用方法" class="headerlink" title="ffuf 使用方法"></a>ffuf 使用方法</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffuf -w /path/to/wordlist -u http://example.com/FUZZ</span><br></pre></td></tr></table></figure><h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+        <content type="html"><![CDATA[<h1 id="New-Star-2024"><a href="#New-Star-2024" class="headerlink" title="New Star 2024"></a>New Star 2024</h1><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><h2 id="week1"><a href="#week1" class="headerlink" title="week1"></a>week1</h2><h3 id="PangBai-过家家（1）"><a href="#PangBai-过家家（1）" class="headerlink" title="PangBai 过家家（1）"></a>PangBai 过家家（1）</h3><p>很麻烦 ：）</p><p>每个故事给一段flag，最后需要base64decode</p><h4 id="Q1"><a href="#Q1" class="headerlink" title="Q1"></a>Q1</h4><p>隐藏在 headers 的 location 字段里</p><h4 id="Q2、Q3、Q4"><a href="#Q2、Q3、Q4" class="headerlink" title="Q2、Q3、Q4"></a>Q2、Q3、Q4</h4><p>通过get、post、cookie传递参数</p><p>POST 的查询类型有很多种，通过 HTTP 报文中的 Content-Type 指定，以告诉服务端用何种方式解析报文 Body 的内容。</p><table><thead><tr><th>Content-Type</th><th>描述</th></tr></thead><tbody><tr><td>application&#x2F;x-www-form-urlencoded</td><td>和 GET 查询字段的写法一样，开头不需要 ?，用 &amp; 符号连接各查询参数，遇到特殊字符需要进行转义。</td></tr><tr><td>application&#x2F;json</td><td>Body 给出一个 JSON 格式的数据，服务端会解析它。</td></tr><tr><td>multipart&#x2F;form-data</td><td>表单字段，一般用于有文件等复杂类型的场景。</td></tr></tbody></table><p>post 发送的请求内容不需要携带<code>&#39;&#39;</code></p><h4 id="Patch"><a href="#Patch" class="headerlink" title="Patch"></a>Patch</h4><h4 id="JWT"><a href="#JWT" class="headerlink" title="JWT"></a>JWT</h4><p>JWT 是 JSON Web Token 的缩写，是一种用于在网络应用环境中传递声明的紧凑且自包含的方式。它通常用于身份验证和信息交换。</p><ul><li>结构：由三部分组成，分别是头部（Header）、载荷（Payload）和签名（Signature），格式为 <code>header.payload.signature</code>。</li><li>编码：头部和载荷部分使用 Base64Url 编码，签名部分是对前两部分进行签名生成的。</li></ul><h2 id="week2"><a href="#week2" class="headerlink" title="week2"></a>week2</h2><h3 id="你能在1s内打出8句英文吗"><a href="#你能在1s内打出8句英文吗" class="headerlink" title="你能在1s内打出8句英文吗"></a>你能在1s内打出8句英文吗</h3><h4 id="session"><a href="#session" class="headerlink" title="session()"></a>session()</h4><p>使用session()函数来启动一个会话，允许你在多个请求之间存储和检索数据。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">session = requests.session()</span><br><span class="line">response = session.get(<span class="string">&#x27;http://example.com&#x27;</span>)</span><br></pre></td></tr></table></figure><h3 id="复读机"><a href="#复读机" class="headerlink" title="复读机"></a>复读机</h3><h4 id="SSTI-注入"><a href="#SSTI-注入" class="headerlink" title="SSTI 注入"></a>SSTI 注入</h4>]]></content>
       
       
       <categories>
