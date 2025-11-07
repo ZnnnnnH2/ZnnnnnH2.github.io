@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>数据科学笔记1</title>
+      <link href="/2025/11/07/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%94%E8%AE%B01/"/>
+      <url>/2025/11/07/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%94%E8%AE%B01/</url>
+      
+        <content type="html"><![CDATA[<h2 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h2><h2 id="回归"><a href="#回归" class="headerlink" title="回归"></a>回归</h2><h3 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h3><h4 id="训练方法"><a href="#训练方法" class="headerlink" title="训练方法"></a>训练方法</h4><h4 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h4><h4 id="多元线性回归"><a href="#多元线性回归" class="headerlink" title="多元线性回归"></a>多元线性回归</h4><h4 id="非数参数的回归"><a href="#非数参数的回归" class="headerlink" title="非数参数的回归"></a>非数参数的回归</h4><h3 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h3><h4 id="为什么要用-sigmoid-作为激活函数"><a href="#为什么要用-sigmoid-作为激活函数" class="headerlink" title="为什么要用 sigmoid 作为激活函数"></a>为什么要用 sigmoid 作为激活函数</h4><h4 id="为什么要采用-cross-entropy-作为损失函数"><a href="#为什么要采用-cross-entropy-作为损失函数" class="headerlink" title="为什么要采用 cross entropy 作为损失函数"></a>为什么要采用 cross entropy 作为损失函数</h4><h4 id="混淆矩阵"><a href="#混淆矩阵" class="headerlink" title="混淆矩阵"></a>混淆矩阵</h4>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> data science </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>linux自用命令表</title>
       <link href="/2025/11/07/linux%E8%87%AA%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%A8/"/>
       <url>/2025/11/07/linux%E8%87%AA%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%A8/</url>
