@@ -5,7 +5,7 @@ import { JSDOM } from 'jsdom';
 import TurndownService from 'turndown';
 
 const ROOT = process.cwd();
-const OUT_DIR = path.join(ROOT, 'src/content/blog');
+const OUT_DIR = path.join(ROOT, 'src/content/posts');
 const LEGACY_GLOB = ['20*/**/index.html'];
 const EXCLUDE = ['node_modules/**', 'dist/**', 'src/**', 'public/**'];
 
