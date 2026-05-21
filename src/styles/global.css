@@ -1,6 +1,6 @@
 :root {
-  color-scheme: light dark;
-  --bg: #fafafa;
+  color-scheme: light;
+  --bg: #fff;
   --text: #1f2937;
   --muted: #6b7280;
   --line: #e5e7eb;
@@ -11,22 +11,21 @@
   --code-bg: #f3f4f6;
   --code-text: #111827;
   --max-width: 760px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Noto Sans Mono CJK SC", "Noto Sans Mono", monospace;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #111827;
-    --text: #d1d5db;
-    --muted: #9ca3af;
-    --line: #374151;
-    --panel: #111827;
-    --panel-soft: #1f2937;
-    --accent: #93c5fd;
-    --accent-soft: rgba(147, 197, 253, 0.12);
-    --code-bg: #0b1120;
-    --code-text: #e5e7eb;
-  }
+html.dark {
+  color-scheme: dark;
+  --bg: #171717;
+  --text: #e5e7eb;
+  --muted: #a3a3a3;
+  --line: #404040;
+  --panel: #171717;
+  --panel-soft: #262626;
+  --accent: #60a5fa;
+  --accent-soft: rgba(96, 165, 250, 0.14);
+  --code-bg: #0a0a0a;
+  --code-text: #f5f5f5;
 }
 
 * { box-sizing: border-box; }
@@ -38,7 +37,7 @@ body {
   background: var(--bg);
   color: var(--text);
   font-size: 16px;
-  line-height: 1.7;
+  line-height: 1.75;
   text-rendering: optimizeLegibility;
 }
 
@@ -72,10 +71,7 @@ a:hover { text-decoration: underline; }
 }
 
 .brand:hover { text-decoration: none; }
-
-.brand-mark {
-  display: none;
-}
+.brand-mark { display: none; }
 
 .brand strong {
   display: block;
@@ -94,6 +90,7 @@ a:hover { text-decoration: underline; }
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
+  align-items: center;
   gap: 16px;
   font-size: 14px;
 }
@@ -104,6 +101,25 @@ a:hover { text-decoration: underline; }
 
 .nav a:hover {
   color: var(--text);
+}
+
+.theme-toggle {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel-soft);
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+}
+
+.theme-toggle:hover {
+  color: var(--text);
+  border-color: var(--accent);
 }
 
 .hero {
@@ -159,10 +175,7 @@ a:hover { text-decoration: underline; }
 
 .button::before { content: "→ "; }
 .button.primary { color: var(--text); }
-
-.hero-panel {
-  display: none;
-}
+.hero-panel { display: none; }
 
 .section-grid {
   display: block;
@@ -275,9 +288,7 @@ a:hover { text-decoration: underline; }
 .archive-item:hover { text-decoration: none; }
 .archive-item strong { color: var(--text); font-size: 16px; font-weight: 600; }
 
-.post-card {
-  padding: 0;
-}
+.post-card { padding: 0; }
 
 .back-link {
   display: inline-block;
@@ -323,14 +334,8 @@ a:hover { text-decoration: underline; }
   letter-spacing: -0.025em;
 }
 
-.prose h2 {
-  font-size: 26px;
-}
-
-.prose h3 {
-  font-size: 21px;
-}
-
+.prose h2 { font-size: 26px; }
+.prose h3 { font-size: 21px; }
 .prose p { margin: 1em 0; }
 .prose a { text-decoration: underline; }
 .prose strong { font-weight: 700; }
@@ -340,9 +345,7 @@ a:hover { text-decoration: underline; }
   padding-left: 1.35rem;
 }
 
-.prose li + li {
-  margin-top: 0.35em;
-}
+.prose li + li { margin-top: 0.35em; }
 
 .prose blockquote {
   margin: 1.5em 0;
@@ -426,16 +429,12 @@ a:hover { text-decoration: underline; }
     gap: 12px;
   }
 
-  .hero {
-    padding-top: 42px;
-  }
+  .hero { padding-top: 42px; }
 
   .archive-item {
     grid-template-columns: 1fr;
     gap: 4px;
   }
 
-  .site-footer {
-    flex-direction: column;
-  }
+  .site-footer { flex-direction: column; }
 }
