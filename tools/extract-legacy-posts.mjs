@@ -7,7 +7,7 @@ import TurndownService from 'turndown';
 const ROOT = process.cwd();
 const OUT_DIR = path.join(ROOT, 'src/content/blog');
 const LEGACY_GLOB = ['20*/**/index.html'];
-const EXCLUDE = ['node_modules/**', 'dist/**', 'src/**'];
+const EXCLUDE = ['node_modules/**', 'dist/**', 'src/**', 'public/**'];
 
 const turndown = new TurndownService({
   headingStyle: 'atx',
@@ -52,6 +52,25 @@ function cleanText(value) {
   return String(value ?? '').replace(/\s+/g, ' ').trim();
 }
 
+function normalizeAssetPath(src) {
+  if (!src) return src;
+  if (/^(https?:)?\/\//i.test(src) || src.startsWith('data:') || src.startsWith('/')) return src;
+  if (src.startsWith('img/') || src.startsWith('images/')) return `/${src}`;
+  return src;
+}
+
+function normalizeMarkdown(markdown) {
+  return markdown
+    .replace(/https:\/\/znnnnnh2\.icu/gi, 'https://ZnnnnnH2.github.io')
+    .replace(/!\[([^\]]*)\]\((img\/[^)]+)\)/g, '![$1](/$2)')
+    .replace(/!\[([^\]]*)\]\((images\/[^)]+)\)/g, '![$1](/$2)')
+    .replace(/\]\((img\/[^)]+)\)/g, '](/$1)')
+    .replace(/\]\((images\/[^)]+)\)/g, '](/$1)')
+    .replace(/[\u2004\u2005\u2006]/g, ' ')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
 async function main() {
   await fs.mkdir(OUT_DIR, { recursive: true });
   const files = await fg(LEGACY_GLOB, { cwd: ROOT, ignore: EXCLUDE, dot: false });
@@ -77,10 +96,14 @@ async function main() {
     const description = cleanText(document.querySelector('meta[name="description"]')?.getAttribute('content') || article.textContent).slice(0, 180);
 
     article.querySelectorAll('script, style').forEach(node => node.remove());
-    const markdown = turndown.turndown(article.innerHTML)
-      .replace(/https:\/\/znnnnnh2\.icu/gi, 'https://ZnnnnnH2.github.io')
-      .replace(/\n{3,}/g, '\n\n')
-      .trim();
+    article.querySelectorAll('img').forEach(img => {
+      img.setAttribute('src', normalizeAssetPath(img.getAttribute('src')));
+    });
+    article.querySelectorAll('a[href]').forEach(anchor => {
+      anchor.setAttribute('href', normalizeAssetPath(anchor.getAttribute('href')));
+    });
+
+    const markdown = normalizeMarkdown(turndown.turndown(article.innerHTML));
 
     const out = `---\ntitle: ${yamlString(title)}\ndescription: ${yamlString(description)}\npubDate: ${yamlString(pubDate)}\n${updatedDate ? `updatedDate: ${yamlString(updatedDate)}\n` : ''}category: ${yamlString(category)}\ntags: ${yamlArray(tags)}\nlegacyPath: ${yamlString('/' + file.replace(/index\.html$/, ''))}\ndraft: false\n---\n\n${markdown}\n`;
 
