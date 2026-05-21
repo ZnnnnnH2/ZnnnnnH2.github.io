@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="关于" description="关于 ZnnnnnH2 小屋">
+  <main class="narrow-page">
+    <header class="page-heading">
+      <p class="eyebrow">About</p>
+      <h1>关于这个小屋</h1>
+      <p>这里用于沉淀课程笔记、工程记录、研究想法和长期学习路线。</p>
+    </header>
+    <section class="about-card prose">
+      <p>当前版本已经从旧的生成式 HTML 仓库迁移为 Astro 源码工程。后续文章应直接写在 <code>src/content/blog</code> 中。</p>
+      <p>数学公式使用 KaTeX 构建期渲染，支持行内公式 <code>$a^2+b^2=c^2$</code> 和块级公式。</p>
+    </section>
+  </main>
+</BaseLayout>
