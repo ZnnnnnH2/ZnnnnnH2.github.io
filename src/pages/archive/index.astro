@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getAllPosts, formatDate } from '../../lib/posts';
+
+const posts = await getAllPosts();
+---
+<BaseLayout title="归档" description="全部文章归档">
+  <main class="narrow-page">
+    <header class="page-heading">
+      <p class="eyebrow">Archive</p>
+      <h1>文章归档</h1>
+      <p>按时间倒序整理全部文章。</p>
+    </header>
+    <div class="archive-list">
+      {posts.map(post => (
+        <a class="archive-item" href={`/posts/${post.slug}/`}>
+          <time>{formatDate(post.data.pubDate)}</time>
+          <strong>{post.data.title}</strong>
+          <span>{post.data.category ?? '笔记'}</span>
+        </a>
+      ))}
+    </div>
+  </main>
+</BaseLayout>
