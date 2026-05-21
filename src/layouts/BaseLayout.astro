@@ -23,31 +23,45 @@ const pageTitle = title === 'ZnnnnnH2 小屋' ? title : `${title} | ZnnnnnH2 小
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url.href} />
-    <meta name="theme-color" content="#0f172a" />
+    <meta name="theme-color" content="#f8fafc" />
     <title>{pageTitle}</title>
+    <script is:inline>
+      const theme = localStorage.getItem('theme') || 'system';
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (theme === 'dark' || (theme === 'system' && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
   </head>
   <body>
     <div class="site-shell">
       <header class="site-header">
         <a class="brand" href="/">
-          <span class="brand-mark">Z</span>
           <span>
             <strong>ZnnnnnH2 小屋</strong>
             <small>CS · AI · Security · Notes</small>
           </span>
         </a>
-        <nav class="nav">
+        <nav class="nav" aria-label="Primary navigation">
           <a href="/">首页</a>
           <a href="/archive/">归档</a>
           <a href="/tags/">标签</a>
           <a href="/about/">关于</a>
+          <button class="theme-toggle" type="button" aria-label="Toggle color theme" data-theme-toggle>◐</button>
         </nav>
       </header>
       <slot />
       <footer class="site-footer">
         <span>© {new Date().getFullYear()} ZnnnnnH2</span>
-        <span>Built with Astro + KaTeX</span>
+        <span>AstroPaper-inspired · Astro + KaTeX</span>
       </footer>
     </div>
+    <script is:inline>
+      const button = document.querySelector('[data-theme-toggle]');
+      button?.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      });
+    </script>
   </body>
 </html>
