@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getAllPosts, uniqueTags } from '../../lib/posts';
+
+const posts = await getAllPosts();
+const tags = uniqueTags(posts);
+---
+<BaseLayout title="标签" description="按标签浏览文章">
+  <main class="narrow-page">
+    <header class="page-heading">
+      <p class="eyebrow">Tags</p>
+      <h1>标签</h1>
+      <p>按主题浏览文章。</p>
+    </header>
+    <div class="tag-cloud large">
+      {tags.map(tag => <a href={`/tags/${encodeURIComponent(tag)}/`}>{tag}</a>)}
+    </div>
+  </main>
+</BaseLayout>
