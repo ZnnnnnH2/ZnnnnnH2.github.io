@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "astro dev",
     "migrate:legacy": "node tools/extract-legacy-posts.mjs",
-    "prebuild": "node tools/extract-legacy-posts.mjs",
+    "prepare:assets": "node tools/prepare-public-assets.mjs",
+    "prebuild": "node tools/prepare-public-assets.mjs && node tools/extract-legacy-posts.mjs",
     "build": "astro build",
     "preview": "astro preview"
   },
