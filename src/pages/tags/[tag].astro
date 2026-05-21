@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getAllPosts, formatDate, uniqueTags } from '../../lib/posts';
+
+export async function getStaticPaths() {
+  const posts = await getAllPosts();
+  return uniqueTags(posts).map(tag => ({ params: { tag }, props: { tag } }));
+}
+
+const { tag } = Astro.props;
+const posts = (await getAllPosts()).filter(post => post.data.tags?.includes(tag));
+---
+<BaseLayout title={`标签：${tag}`} description={`标签 ${tag} 下的文章`}>
+  <main class="narrow-page">
+    <header class="page-heading">
+      <p class="eyebrow">Tag</p>
+      <h1>#{tag}</h1>
+      <p>{posts.length} 篇文章</p>
+    </header>
+    <div class="archive-list">
+      {posts.map(post => (
+        <a class="archive-item" href={`/posts/${post.slug}/`}>
+          <time>{formatDate(post.data.pubDate)}</time>
+          <strong>{post.data.title}</strong>
+          <span>{post.data.category ?? '笔记'}</span>
+        </a>
+      ))}
+    </div>
+  </main>
+</BaseLayout>
