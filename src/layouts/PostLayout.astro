@@ -1,0 +1,31 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { formatDate } from '../lib/posts';
+
+const { entry } = Astro.props;
+const { title, description, pubDate, updatedDate, tags, category } = entry.data;
+---
+<BaseLayout title={title} description={description}>
+  <main class="post-page">
+    <article class="post-card">
+      <header class="post-hero">
+        <a class="back-link" href="/">← 返回首页</a>
+        <p class="eyebrow">{category ?? '笔记'}</p>
+        <h1>{title}</h1>
+        {description && <p class="post-description">{description}</p>}
+        <div class="post-meta">
+          <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
+          {updatedDate && <span>更新：{formatDate(updatedDate)}</span>}
+        </div>
+        {tags?.length > 0 && (
+          <div class="tag-row">
+            {tags.map((tag: string) => <a href={`/tags/${encodeURIComponent(tag)}/`}>#{tag}</a>)}
+          </div>
+        )}
+      </header>
+      <div class="prose">
+        <slot />
+      </div>
+    </article>
+  </main>
+</BaseLayout>

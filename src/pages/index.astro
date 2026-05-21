@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getAllPosts, formatDate, uniqueTags } from '../lib/posts';
+
+const posts = await getAllPosts();
+const featured = posts.slice(0, 6);
+const tags = uniqueTags(posts).slice(0, 18);
+---
+<BaseLayout>
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Personal knowledge base</p>
+        <h1>记录学习、研究和工程实验。</h1>
+        <p class="hero-text">一个更干净的 Markdown 博客：适合课程笔记、技术文章和带 LaTeX 的长文档。</p>
+        <div class="hero-actions">
+          <a class="button primary" href="/archive/">浏览归档</a>
+          <a class="button" href="/tags/">按标签检索</a>
+        </div>
+      </div>
+      <aside class="hero-panel">
+        <span class="metric">{posts.length}</span>
+        <span>篇文章已迁移</span>
+        <code>Markdown · KaTeX · Astro</code>
+      </aside>
+    </section>
+
+    <section class="section-grid">
+      <div class="section-main">
+        <div class="section-title">
+          <p class="eyebrow">Latest</p>
+          <h2>最近文章</h2>
+        </div>
+        <div class="post-list">
+          {featured.map(post => (
+            <a class="post-item" href={`/posts/${post.slug}/`}>
+              <span>{post.data.category ?? '笔记'}</span>
+              <h3>{post.data.title}</h3>
+              {post.data.description && <p>{post.data.description}</p>}
+              <time>{formatDate(post.data.pubDate)}</time>
+            </a>
+          ))}
+        </div>
+      </div>
+      <aside class="sidebar-card">
+        <h2>标签</h2>
+        <div class="tag-cloud">
+          {tags.map(tag => <a href={`/tags/${encodeURIComponent(tag)}/`}>{tag}</a>)}
+        </div>
+      </aside>
+    </section>
+  </main>
+</BaseLayout>

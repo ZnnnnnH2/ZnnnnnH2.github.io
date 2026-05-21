@@ -1,0 +1,53 @@
+---
+import 'katex/dist/katex.min.css';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'ZnnnnnH2 小屋',
+  description = 'To output, to share, to record, to learn, to grow.',
+} = Astro.props;
+const pageTitle = title === 'ZnnnnnH2 小屋' ? title : `${title} | ZnnnnnH2 小屋`;
+---
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta name="theme-color" content="#0f172a" />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="/">
+          <span class="brand-mark">Z</span>
+          <span>
+            <strong>ZnnnnnH2 小屋</strong>
+            <small>CS · AI · Security · Notes</small>
+          </span>
+        </a>
+        <nav class="nav">
+          <a href="/">首页</a>
+          <a href="/archive/">归档</a>
+          <a href="/tags/">标签</a>
+          <a href="/about/">关于</a>
+        </nav>
+      </header>
+      <slot />
+      <footer class="site-footer">
+        <span>© {new Date().getFullYear()} ZnnnnnH2</span>
+        <span>Built with Astro + KaTeX</span>
+      </footer>
+    </div>
+  </body>
+</html>
